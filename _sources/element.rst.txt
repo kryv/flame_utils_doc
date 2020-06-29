@@ -96,6 +96,8 @@ Basic format of the beam parameters are,
         | ``dir(path)`` supports relative path.
 
 
+.. _element:
+
 Lattice elements
 ----------------
 
