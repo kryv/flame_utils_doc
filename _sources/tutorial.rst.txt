@@ -34,7 +34,7 @@ Create |ModelFlame| object with input lattice file.
 
      r, s = fm.run()
 
-Now ``s`` is the |BeamState| object at the end of the lattice.
+Here ``s`` is the |BeamState| object at the end of the lattice section.
 
 User can obtain various beam parameter which listed in |BeamState| docstring.
 ::
@@ -55,7 +55,7 @@ User can observe the beam state history by using monitor keyword in |run()|.
 
 Here ``r`` contains the list of (index, |BeamState|) for each lattice element.
 
-Now user can obtain list of beam parameters along the lattice by using |collect_data()|.
+Also, obtain list of beam parameters along the lattice by using |collect_data()|.
 ::
 
     d = fm.collect_data(r, 'pos', 'xrms', 'yrms')
