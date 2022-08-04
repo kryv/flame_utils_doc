@@ -4,10 +4,11 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
-  
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>ModelFlame Class &mdash; flame_utils  documentation</title>
+  <title>ModelFlame Class &mdash; flame-utils  documentation</title>
   
 
   
@@ -15,6 +16,8 @@
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
 
   
+  
+    <link rel="shortcut icon" href="_static/frib-favicon.ico"/>
   
   
   
@@ -52,7 +55,7 @@
           
 
           
-            <a href="index.html" class="icon icon-home" alt="Documentation Home"> flame_utils
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> flame-utils
           
 
           
@@ -62,7 +65,7 @@
             
             
               <div class="version">
-                0.3.10
+                0.4.2
               </div>
             
           
@@ -87,8 +90,7 @@
               
             
             
-              <p class="caption"><span class="caption-text">Contents:</span></p>
-<ul class="current">
+              <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="tutorial.html">Tutorial</a></li>
 <li class="toctree-l1"><a class="reference internal" href="element.html">Lattice Properties</a></li>
 <li class="toctree-l1"><a class="reference internal" href="beamstate.html">BeamState Class</a></li>
@@ -97,6 +99,7 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="plotlat.html">Plot function</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">Application Programming Interface</a></li>
 </ul>
 
             
@@ -112,7 +115,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">flame_utils</a>
+          <a href="index.html">flame-utils</a>
         
       </nav>
 
@@ -162,14 +165,14 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="modelflame-class">
+  <section id="modelflame-class">
 <h1>ModelFlame Class<a class="headerlink" href="#modelflame-class" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="module-flame_utils.core.model">
+<section id="module-flame_utils.core.model">
 <span id="machine-control-configuration-and-output"></span><h2>Machine control, configuration, and output<a class="headerlink" href="#module-flame_utils.core.model" title="Permalink to this headline">¶</a></h2>
 <p>Simulation/modeling with FLAME.</p>
 <dl class="py class">
 <dt id="flame_utils.core.model.ModelFlame">
-<em class="property">class </em><code class="sig-prename descclassname">flame_utils.core.model.</code><code class="sig-name descname">ModelFlame</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">lat_file</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kws</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/flame_utils/core/model.html#ModelFlame"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#flame_utils.core.model.ModelFlame" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">flame_utils.core.model.</code><code class="sig-name descname">ModelFlame</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">lat_file</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">machine</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kws</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/flame_utils/core/model.html#ModelFlame"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#flame_utils.core.model.ModelFlame" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>General FLAME modeling class.</p>
 <p>Class attributes:</p>
@@ -197,52 +200,52 @@
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#flame_utils.core.model.ModelFlame.generate_latfile" title="flame_utils.core.model.ModelFlame.generate_latfile"><code class="xref py py-obj docutils literal notranslate"><span class="pre">generate_latfile</span></code></a>(self[, latfile, original, …])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#flame_utils.core.model.ModelFlame.generate_latfile" title="flame_utils.core.model.ModelFlame.generate_latfile"><code class="xref py py-obj docutils literal notranslate"><span class="pre">generate_latfile</span></code></a>([latfile, original, state])</p></td>
 <td><p>Generate lattice file for the usage of FLAME code.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#flame_utils.core.model.ModelFlame.find" title="flame_utils.core.model.ModelFlame.find"><code class="xref py py-obj docutils literal notranslate"><span class="pre">find</span></code></a>(self, \*args, \*\*kws)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#flame_utils.core.model.ModelFlame.find" title="flame_utils.core.model.ModelFlame.find"><code class="xref py py-obj docutils literal notranslate"><span class="pre">find</span></code></a>(*args, **kws)</p></td>
 <td><p>Find element indexs.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#flame_utils.core.model.ModelFlame.reconfigure" title="flame_utils.core.model.ModelFlame.reconfigure"><code class="xref py py-obj docutils literal notranslate"><span class="pre">reconfigure</span></code></a>(self, index, properties)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#flame_utils.core.model.ModelFlame.reconfigure" title="flame_utils.core.model.ModelFlame.reconfigure"><code class="xref py py-obj docutils literal notranslate"><span class="pre">reconfigure</span></code></a>(index, properties)</p></td>
 <td><p>Reconfigure FLAME model.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#flame_utils.core.model.ModelFlame.run" title="flame_utils.core.model.ModelFlame.run"><code class="xref py py-obj docutils literal notranslate"><span class="pre">run</span></code></a>(self[, bmstate, from_element, …])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#flame_utils.core.model.ModelFlame.run" title="flame_utils.core.model.ModelFlame.run"><code class="xref py py-obj docutils literal notranslate"><span class="pre">run</span></code></a>([bmstate, from_element, to_element, …])</p></td>
 <td><p>Simulate model.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#flame_utils.core.model.ModelFlame.collect_data" title="flame_utils.core.model.ModelFlame.collect_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">collect_data</span></code></a>(result, \*args, \*\*kws)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#flame_utils.core.model.ModelFlame.collect_data" title="flame_utils.core.model.ModelFlame.collect_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">collect_data</span></code></a>(result, *args, **kws)</p></td>
 <td><p>Collect data of interest from propagation results.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#flame_utils.core.model.ModelFlame.insert_element" title="flame_utils.core.model.ModelFlame.insert_element"><code class="xref py py-obj docutils literal notranslate"><span class="pre">insert_element</span></code></a>(self[, index, element, econf])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#flame_utils.core.model.ModelFlame.insert_element" title="flame_utils.core.model.ModelFlame.insert_element"><code class="xref py py-obj docutils literal notranslate"><span class="pre">insert_element</span></code></a>([index, element, econf])</p></td>
 <td><p>Insert new element to the machine.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#flame_utils.core.model.ModelFlame.get_element" title="flame_utils.core.model.ModelFlame.get_element"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_element</span></code></a>(self[, name, index, type])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#flame_utils.core.model.ModelFlame.get_element" title="flame_utils.core.model.ModelFlame.get_element"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_element</span></code></a>([name, index, type])</p></td>
 <td><p>Element inspection, get properties.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#flame_utils.core.model.ModelFlame.configure" title="flame_utils.core.model.ModelFlame.configure"><code class="xref py py-obj docutils literal notranslate"><span class="pre">configure</span></code></a>(self, econf)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#flame_utils.core.model.ModelFlame.configure" title="flame_utils.core.model.ModelFlame.configure"><code class="xref py py-obj docutils literal notranslate"><span class="pre">configure</span></code></a>(econf)</p></td>
 <td><p>Configure FLAME model.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#flame_utils.core.model.ModelFlame.get_all_types" title="flame_utils.core.model.ModelFlame.get_all_types"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_all_types</span></code></a>(self)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#flame_utils.core.model.ModelFlame.get_all_types" title="flame_utils.core.model.ModelFlame.get_all_types"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_all_types</span></code></a>()</p></td>
 <td><p>Get all uniqe element types.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#flame_utils.core.model.ModelFlame.get_all_names" title="flame_utils.core.model.ModelFlame.get_all_names"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_all_names</span></code></a>(self)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#flame_utils.core.model.ModelFlame.get_all_names" title="flame_utils.core.model.ModelFlame.get_all_names"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_all_names</span></code></a>()</p></td>
 <td><p>Get all uniqe element names.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#flame_utils.core.model.ModelFlame.get_index_by_type" title="flame_utils.core.model.ModelFlame.get_index_by_type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_index_by_type</span></code></a>(self[, type, rtype])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#flame_utils.core.model.ModelFlame.get_index_by_type" title="flame_utils.core.model.ModelFlame.get_index_by_type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_index_by_type</span></code></a>([type, rtype])</p></td>
 <td><p>Get element(s) index by type(s).</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#flame_utils.core.model.ModelFlame.get_index_by_name" title="flame_utils.core.model.ModelFlame.get_index_by_name"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_index_by_name</span></code></a>(self[, name, rtype])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#flame_utils.core.model.ModelFlame.get_index_by_name" title="flame_utils.core.model.ModelFlame.get_index_by_name"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_index_by_name</span></code></a>([name, rtype])</p></td>
 <td><p>Get index(s) by name(s).</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#flame_utils.core.model.ModelFlame.get_transfer_matrix" title="flame_utils.core.model.ModelFlame.get_transfer_matrix"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_transfer_matrix</span></code></a>(self[, from_element, …])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#flame_utils.core.model.ModelFlame.get_transfer_matrix" title="flame_utils.core.model.ModelFlame.get_transfer_matrix"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_transfer_matrix</span></code></a>([from_element, …])</p></td>
 <td><p>Calculate the complete transfer matrix from one element (<em>from_element</em>) to another (<em>to_element</em>).</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#flame_utils.core.model.ModelFlame.convert_results" title="flame_utils.core.model.ModelFlame.convert_results"><code class="xref py py-obj docutils literal notranslate"><span class="pre">convert_results</span></code></a>(res, \*\*kws)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#flame_utils.core.model.ModelFlame.convert_results" title="flame_utils.core.model.ModelFlame.convert_results"><code class="xref py py-obj docutils literal notranslate"><span class="pre">convert_results</span></code></a>(res, **kws)</p></td>
 <td><p>Convert all beam states of results generated by <a class="reference internal" href="#flame_utils.core.model.ModelFlame.run" title="flame_utils.core.model.ModelFlame.run"><code class="xref py py-func docutils literal notranslate"><span class="pre">run()</span></code></a> method to be <code class="docutils literal notranslate"><span class="pre">BeamState</span></code> object.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#flame_utils.core.model.ModelFlame.inspect_lattice" title="flame_utils.core.model.ModelFlame.inspect_lattice"><code class="xref py py-obj docutils literal notranslate"><span class="pre">inspect_lattice</span></code></a>(self)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#flame_utils.core.model.ModelFlame.inspect_lattice" title="flame_utils.core.model.ModelFlame.inspect_lattice"><code class="xref py py-obj docutils literal notranslate"><span class="pre">inspect_lattice</span></code></a>()</p></td>
 <td><p>Inspect FLAME machine and print out information.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#flame_utils.core.model.ModelFlame.clone_machine" title="flame_utils.core.model.ModelFlame.clone_machine"><code class="xref py py-obj docutils literal notranslate"><span class="pre">clone_machine</span></code></a>(self)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#flame_utils.core.model.ModelFlame.clone_machine" title="flame_utils.core.model.ModelFlame.clone_machine"><code class="xref py py-obj docutils literal notranslate"><span class="pre">clone_machine</span></code></a>()</p></td>
 <td><p>Clone FLAME Machine object.</p></td>
 </tr>
 </tbody>
@@ -344,7 +347,7 @@ and <code class="docutils literal notranslate"><span class="pre">s</span></code>
 
 <dl class="py method">
 <dt id="flame_utils.core.model.ModelFlame.find">
-<code class="sig-name descname">find</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">\*args</em>, <em class="sig-param">\*\*kws</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/flame_utils/core/model.html#ModelFlame.find"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#flame_utils.core.model.ModelFlame.find" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">find</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kws</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/flame_utils/core/model.html#ModelFlame.find"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#flame_utils.core.model.ModelFlame.find" title="Permalink to this definition">¶</a></dt>
 <dd><p>Find element indexs.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -372,7 +375,7 @@ list, of indices list, with the order of type.</p>
 
 <dl class="py method">
 <dt id="flame_utils.core.model.ModelFlame.get_element">
-<code class="sig-name descname">get_element</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">name=None</em>, <em class="sig-param">index=None</em>, <em class="sig-param">type=None</em>, <em class="sig-param">\*\*kws</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/flame_utils/core/model.html#ModelFlame.get_element"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#flame_utils.core.model.ModelFlame.get_element" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_element</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">index</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">type</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kws</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/flame_utils/core/model.html#ModelFlame.get_element"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#flame_utils.core.model.ModelFlame.get_element" title="Permalink to this definition">¶</a></dt>
 <dd><p>Element inspection, get properties.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -393,7 +396,7 @@ list, of indices list, with the order of type.</p>
 
 <dl class="py method">
 <dt id="flame_utils.core.model.ModelFlame.inspect_lattice">
-<code class="sig-name descname">inspect_lattice</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/flame_utils/core/model.html#ModelFlame.inspect_lattice"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#flame_utils.core.model.ModelFlame.inspect_lattice" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">inspect_lattice</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/flame_utils/core/model.html#ModelFlame.inspect_lattice"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#flame_utils.core.model.ModelFlame.inspect_lattice" title="Permalink to this definition">¶</a></dt>
 <dd><p>Inspect FLAME machine and print out information.</p>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
@@ -406,7 +409,7 @@ list, of indices list, with the order of type.</p>
 
 <dl class="py method">
 <dt id="flame_utils.core.model.ModelFlame.get_all_types">
-<code class="sig-name descname">get_all_types</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/flame_utils/core/model.html#ModelFlame.get_all_types"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#flame_utils.core.model.ModelFlame.get_all_types" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_all_types</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/flame_utils/core/model.html#ModelFlame.get_all_types"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#flame_utils.core.model.ModelFlame.get_all_types" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get all uniqe element types.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -427,7 +430,7 @@ list, of indices list, with the order of type.</p>
 
 <dl class="py method">
 <dt id="flame_utils.core.model.ModelFlame.get_all_names">
-<code class="sig-name descname">get_all_names</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/flame_utils/core/model.html#ModelFlame.get_all_names"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#flame_utils.core.model.ModelFlame.get_all_names" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_all_names</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/flame_utils/core/model.html#ModelFlame.get_all_names"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#flame_utils.core.model.ModelFlame.get_all_names" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get all uniqe element names.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -448,7 +451,7 @@ list, of indices list, with the order of type.</p>
 
 <dl class="py method">
 <dt id="flame_utils.core.model.ModelFlame.get_index_by_type">
-<code class="sig-name descname">get_index_by_type</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">type</span><span class="o">=</span><span class="default_value">''</span></em>, <em class="sig-param"><span class="n">rtype</span><span class="o">=</span><span class="default_value">'dict'</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/flame_utils/core/model.html#ModelFlame.get_index_by_type"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#flame_utils.core.model.ModelFlame.get_index_by_type" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_index_by_type</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">type</span><span class="o">=</span><span class="default_value">''</span></em>, <em class="sig-param"><span class="n">rtype</span><span class="o">=</span><span class="default_value">'dict'</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/flame_utils/core/model.html#ModelFlame.get_index_by_type"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#flame_utils.core.model.ModelFlame.get_index_by_type" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get element(s) index by type(s).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -478,7 +481,7 @@ list, of indices list, with the order of type.</p>
 
 <dl class="py method">
 <dt id="flame_utils.core.model.ModelFlame.get_index_by_name">
-<code class="sig-name descname">get_index_by_name</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">name</span><span class="o">=</span><span class="default_value">''</span></em>, <em class="sig-param"><span class="n">rtype</span><span class="o">=</span><span class="default_value">'dict'</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/flame_utils/core/model.html#ModelFlame.get_index_by_name"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#flame_utils.core.model.ModelFlame.get_index_by_name" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_index_by_name</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span><span class="o">=</span><span class="default_value">''</span></em>, <em class="sig-param"><span class="n">rtype</span><span class="o">=</span><span class="default_value">'dict'</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/flame_utils/core/model.html#ModelFlame.get_index_by_name"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#flame_utils.core.model.ModelFlame.get_index_by_name" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get index(s) by name(s).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -508,7 +511,7 @@ list of element indices list.</p>
 
 <dl class="py method">
 <dt id="flame_utils.core.model.ModelFlame.run">
-<code class="sig-name descname">run</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">bmstate</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">from_element</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">to_element</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">monitor</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">include_initial_state</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/flame_utils/core/model.html#ModelFlame.run"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#flame_utils.core.model.ModelFlame.run" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">run</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">bmstate</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">from_element</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">to_element</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">monitor</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">include_initial_state</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/flame_utils/core/model.html#ModelFlame.run"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#flame_utils.core.model.ModelFlame.run" title="Permalink to this definition">¶</a></dt>
 <dd><p>Simulate model.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -558,7 +561,7 @@ changes.</p>
 
 <dl class="py method">
 <dt id="flame_utils.core.model.ModelFlame.convert_results">
-<em class="property">static </em><code class="sig-name descname">convert_results</code><span class="sig-paren">(</span><em class="sig-param">res</em>, <em class="sig-param">\*\*kws</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/flame_utils/core/model.html#ModelFlame.convert_results"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#flame_utils.core.model.ModelFlame.convert_results" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="sig-name descname">convert_results</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">res</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kws</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/flame_utils/core/model.html#ModelFlame.convert_results"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#flame_utils.core.model.ModelFlame.convert_results" title="Permalink to this definition">¶</a></dt>
 <dd><p>Convert all beam states of results generated by <a class="reference internal" href="#flame_utils.core.model.ModelFlame.run" title="flame_utils.core.model.ModelFlame.run"><code class="xref py py-func docutils literal notranslate"><span class="pre">run()</span></code></a>
 method to be <code class="docutils literal notranslate"><span class="pre">BeamState</span></code> object.</p>
 <dl class="field-list simple">
@@ -581,7 +584,7 @@ point.</p>
 
 <dl class="py method">
 <dt id="flame_utils.core.model.ModelFlame.collect_data">
-<em class="property">static </em><code class="sig-name descname">collect_data</code><span class="sig-paren">(</span><em class="sig-param">result</em>, <em class="sig-param">\*args</em>, <em class="sig-param">\*\*kws</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/flame_utils/core/model.html#ModelFlame.collect_data"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#flame_utils.core.model.ModelFlame.collect_data" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="sig-name descname">collect_data</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">result</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kws</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/flame_utils/core/model.html#ModelFlame.collect_data"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#flame_utils.core.model.ModelFlame.collect_data" title="Permalink to this definition">¶</a></dt>
 <dd><p>Collect data of interest from propagation results.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -610,12 +613,13 @@ point.</p>
 
 <dl class="py method">
 <dt id="flame_utils.core.model.ModelFlame.configure">
-<code class="sig-name descname">configure</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">econf</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/flame_utils/core/model.html#ModelFlame.configure"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#flame_utils.core.model.ModelFlame.configure" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">configure</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">econf</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/flame_utils/core/model.html#ModelFlame.configure"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#flame_utils.core.model.ModelFlame.configure" title="Permalink to this definition">¶</a></dt>
 <dd><p>Configure FLAME model.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>econf</strong><span class="classifier">(list of) dict</span></dt><dd><p>Element configuration(s), see <a class="reference internal" href="#flame_utils.core.model.ModelFlame.get_element" title="flame_utils.core.model.ModelFlame.get_element"><code class="xref py py-func docutils literal notranslate"><span class="pre">get_element()</span></code></a>.</p>
+<dt><strong>econf</strong><span class="classifier">(list of) dict</span></dt><dd><p>Element configuration(s), see <a class="reference internal" href="#flame_utils.core.model.ModelFlame.get_element" title="flame_utils.core.model.ModelFlame.get_element"><code class="xref py py-func docutils literal notranslate"><span class="pre">get_element()</span></code></a>.
+Pass single element dict for source configuration.</p>
 </dd>
 </dl>
 </dd>
@@ -630,12 +634,13 @@ point.</p>
 </dl>
 </div>
 <p class="rubric">Notes</p>
-<p>Pass <cite>econf</cite> with a list of dict for applying batch configuring.</p>
+<p>Pass <cite>econf</cite> with a list of dict for applying batch configuring.
+This method is not meant for reconfigure source.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt id="flame_utils.core.model.ModelFlame.reconfigure">
-<code class="sig-name descname">reconfigure</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">index</span></em>, <em class="sig-param"><span class="n">properties</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/flame_utils/core/model.html#ModelFlame.reconfigure"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#flame_utils.core.model.ModelFlame.reconfigure" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">reconfigure</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">index</span></em>, <em class="sig-param"><span class="n">properties</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/flame_utils/core/model.html#ModelFlame.reconfigure"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#flame_utils.core.model.ModelFlame.reconfigure" title="Permalink to this definition">¶</a></dt>
 <dd><p>Reconfigure FLAME model.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -665,7 +670,7 @@ point.</p>
 
 <dl class="py method">
 <dt id="flame_utils.core.model.ModelFlame.clone_machine">
-<code class="sig-name descname">clone_machine</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/flame_utils/core/model.html#ModelFlame.clone_machine"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#flame_utils.core.model.ModelFlame.clone_machine" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">clone_machine</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/flame_utils/core/model.html#ModelFlame.clone_machine"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#flame_utils.core.model.ModelFlame.clone_machine" title="Permalink to this definition">¶</a></dt>
 <dd><p>Clone FLAME Machine object.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -679,7 +684,7 @@ point.</p>
 
 <dl class="py method">
 <dt id="flame_utils.core.model.ModelFlame.insert_element">
-<code class="sig-name descname">insert_element</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">index</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">element</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">econf</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/flame_utils/core/model.html#ModelFlame.insert_element"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#flame_utils.core.model.ModelFlame.insert_element" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">insert_element</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">index</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">element</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">econf</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/flame_utils/core/model.html#ModelFlame.insert_element"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#flame_utils.core.model.ModelFlame.insert_element" title="Permalink to this definition">¶</a></dt>
 <dd><p>Insert new element to the machine.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -699,8 +704,22 @@ If econf is defined, insert econf[‘properties’] element before econf[‘inde
 </dd></dl>
 
 <dl class="py method">
+<dt id="flame_utils.core.model.ModelFlame.pop_element">
+<code class="sig-name descname">pop_element</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">index</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/flame_utils/core/model.html#ModelFlame.pop_element"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#flame_utils.core.model.ModelFlame.pop_element" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove element from the machine.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>index</strong><span class="classifier">str, int, list or tuple of int</span></dt><dd><p>Remove element at the index (or element name).</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
 <dt id="flame_utils.core.model.ModelFlame.generate_latfile">
-<code class="sig-name descname">generate_latfile</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">latfile=None</em>, <em class="sig-param">original=None</em>, <em class="sig-param">state=None</em>, <em class="sig-param">\*\*kws</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/flame_utils/core/model.html#ModelFlame.generate_latfile"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#flame_utils.core.model.ModelFlame.generate_latfile" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">generate_latfile</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">latfile</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">original</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">state</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kws</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/flame_utils/core/model.html#ModelFlame.generate_latfile"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#flame_utils.core.model.ModelFlame.generate_latfile" title="Permalink to this definition">¶</a></dt>
 <dd><p>Generate lattice file for the usage of FLAME code.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -736,7 +755,7 @@ If econf is defined, insert econf[‘properties’] element before econf[‘inde
 
 <dl class="py method">
 <dt id="flame_utils.core.model.ModelFlame.get_transfer_matrix">
-<code class="sig-name descname">get_transfer_matrix</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">from_element</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">to_element</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">charge_state_index</span><span class="o">=</span><span class="default_value">0</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/flame_utils/core/model.html#ModelFlame.get_transfer_matrix"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#flame_utils.core.model.ModelFlame.get_transfer_matrix" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_transfer_matrix</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">from_element</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">to_element</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">charge_state_index</span><span class="o">=</span><span class="default_value">0</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/flame_utils/core/model.html#ModelFlame.get_transfer_matrix"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#flame_utils.core.model.ModelFlame.get_transfer_matrix" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculate the complete transfer matrix from one element
 (<em>from_element</em>) to another (<em>to_element</em>).</p>
 <dl class="field-list simple">
@@ -765,7 +784,7 @@ element.</p>
 
 <dl class="py function">
 <dt id="flame_utils.core.model.propagate">
-<code class="sig-prename descclassname">flame_utils.core.model.</code><code class="sig-name descname">propagate</code><span class="sig-paren">(</span><em class="sig-param">machine=None</em>, <em class="sig-param">bmstate=None</em>, <em class="sig-param">from_element=None</em>, <em class="sig-param">to_element=None</em>, <em class="sig-param">monitor=None</em>, <em class="sig-param">\*\*kws</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/flame_utils/core/model.html#propagate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#flame_utils.core.model.propagate" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">flame_utils.core.model.</code><code class="sig-name descname">propagate</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">machine</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">bmstate</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">from_element</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">to_element</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">monitor</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kws</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/flame_utils/core/model.html#propagate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#flame_utils.core.model.propagate" title="Permalink to this definition">¶</a></dt>
 <dd><p>Propagate <code class="docutils literal notranslate"><span class="pre">BeamState</span></code>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -803,7 +822,7 @@ after the last monitor point.</p>
 
 <dl class="py function">
 <dt id="flame_utils.core.model.configure">
-<code class="sig-prename descclassname">flame_utils.core.model.</code><code class="sig-name descname">configure</code><span class="sig-paren">(</span><em class="sig-param">machine=None</em>, <em class="sig-param">econf=None</em>, <em class="sig-param">\*\*kws</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/flame_utils/core/model.html#configure"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#flame_utils.core.model.configure" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">flame_utils.core.model.</code><code class="sig-name descname">configure</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">machine</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">econf</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kws</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/flame_utils/core/model.html#configure"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#flame_utils.core.model.configure" title="Permalink to this definition">¶</a></dt>
 <dd><p>Configure FLAME machine.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -862,8 +881,13 @@ which is just the same as: <code class="docutils literal notranslate"><span clas
 </div>
 </dd></dl>
 
-</div>
-</div>
+<dl class="py function">
+<dt id="flame_utils.core.model.scale_by_factor">
+<code class="sig-prename descclassname">flame_utils.core.model.</code><code class="sig-name descname">scale_by_factor</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">machine</span></em>, <em class="sig-param"><span class="n">index</span></em>, <em class="sig-param"><span class="n">s0</span></em>, <em class="sig-param"><span class="n">s1</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/flame_utils/core/model.html#scale_by_factor"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#flame_utils.core.model.scale_by_factor" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</section>
+</section>
 
 
            </div>
@@ -886,7 +910,10 @@ which is just the same as: <code class="docutils literal notranslate"><span clas
   <div role="contentinfo">
     <p>
         
-        &copy; Copyright 2020, Author
+        &copy; Copyright 2018-2020, Facility for Rare Isotope Beams, Michigan State University
+      <span class="lastupdated">
+        Last updated on Aug 03, 2022.
+      </span>
 
     </p>
   </div>

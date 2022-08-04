@@ -4,10 +4,11 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
-  
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Lattice Properties &mdash; flame_utils  documentation</title>
+  <title>Lattice Properties &mdash; flame-utils  documentation</title>
   
 
   
@@ -15,6 +16,8 @@
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
 
   
+  
+    <link rel="shortcut icon" href="_static/frib-favicon.ico"/>
   
   
   
@@ -52,7 +55,7 @@
           
 
           
-            <a href="index.html" class="icon icon-home" alt="Documentation Home"> flame_utils
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> flame-utils
           
 
           
@@ -62,7 +65,7 @@
             
             
               <div class="version">
-                0.3.10
+                0.4.2
               </div>
             
           
@@ -87,8 +90,7 @@
               
             
             
-              <p class="caption"><span class="caption-text">Contents:</span></p>
-<ul class="current">
+              <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="tutorial.html">Tutorial</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Lattice Properties</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#general-parameter">General parameter</a></li>
@@ -111,6 +113,7 @@
 <li class="toctree-l1"><a class="reference internal" href="beamstate.html">BeamState Class</a></li>
 <li class="toctree-l1"><a class="reference internal" href="modelflame.html">ModelFlame Class</a></li>
 <li class="toctree-l1"><a class="reference internal" href="plotlat.html">Plot function</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">Application Programming Interface</a></li>
 </ul>
 
             
@@ -126,7 +129,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">flame_utils</a>
+          <a href="index.html">flame-utils</a>
         
       </nav>
 
@@ -176,9 +179,9 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="lattice-properties">
+  <section id="lattice-properties">
 <h1>Lattice Properties<a class="headerlink" href="#lattice-properties" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="general-parameter">
+<section id="general-parameter">
 <h2>General parameter<a class="headerlink" href="#general-parameter" title="Permalink to this headline">¶</a></h2>
 <p>Basic format of the general parameters are,</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>keyword1 = &quot;value1&quot;;
@@ -270,8 +273,8 @@ keyword2 = &quot;value2&quot;;
 </tr>
 </tbody>
 </table>
-</div>
-<div class="section" id="beam-parameter">
+</section>
+<section id="beam-parameter">
 <h2>Beam parameter<a class="headerlink" href="#beam-parameter" title="Permalink to this headline">¶</a></h2>
 <p>Basic format of the beam parameters are,</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>keyword1 = value1;
@@ -415,8 +418,8 @@ keyword2 = [value2, value3]; # list input
 </tr>
 </tbody>
 </table>
-</div>
-<div class="section" id="lattice-elements">
+</section>
+<section id="lattice-elements">
 <span id="element"></span><h2>Lattice elements<a class="headerlink" href="#lattice-elements" title="Permalink to this headline">¶</a></h2>
 <p>Basic format of the one lattice element is,</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>name_of_element1: element_type, parameter1 = value1, parameter2 = value2, ... ;
@@ -482,7 +485,7 @@ USE: name_of_cell;
 </tr>
 </tbody>
 </table>
-<div class="section" id="special-element">
+<section id="special-element">
 <h3>Special element<a class="headerlink" href="#special-element" title="Permalink to this headline">¶</a></h3>
 <dl class="cpp type">
 <dt id="_CPPv46source">
@@ -609,8 +612,8 @@ USE: name_of_cell;
 </dl>
 </dd></dl>
 
-</div>
-<div class="section" id="optical-element">
+</section>
+<section id="optical-element">
 <h3>Optical element<a class="headerlink" href="#optical-element" title="Permalink to this headline">¶</a></h3>
 <dl class="cpp type">
 <dt id="_CPPv47orbtrim">
@@ -618,7 +621,7 @@ USE: name_of_cell;
 <dd><p>Orbit trim element. This can be use as steering magnet.</p>
 <dl class="field-list">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>realpara</strong>: int</p>
+<dd class="field-odd"><p><strong>realpara</strong>: int (optional, default is <strong>0</strong>)</p>
 <blockquote>
 <div><div class="line-block">
 <div class="line">Realistic input parameter flag for the beam kick angle.</div>
@@ -626,31 +629,31 @@ USE: name_of_cell;
 <div class="line"><strong>1</strong> - use <code class="docutils literal notranslate"><span class="pre">tm_xkick</span></code> and <code class="docutils literal notranslate"><span class="pre">tm_ykick</span></code> for the beam kick.</div>
 </div>
 </div></blockquote>
-<p><strong>theta_x</strong>: float</p>
+<p><strong>theta_x</strong>: float (optional, default is <strong>0.0</strong>)</p>
 <blockquote>
 <div><div class="line-block">
 <div class="line">Horizontal beam kick angle. [rad]</div>
 </div>
 </div></blockquote>
-<p><strong>theta_y</strong>: float</p>
+<p><strong>theta_y</strong>: float (optional, default is <strong>0.0</strong>)</p>
 <blockquote>
 <div><div class="line-block">
 <div class="line">Vertical beam kick angle. [rad]</div>
 </div>
 </div></blockquote>
-<p><strong>tm_xkick</strong>: float</p>
+<p><strong>tm_xkick</strong>: float (optional, default is <strong>0.0</strong>)</p>
 <blockquote>
 <div><div class="line-block">
 <div class="line">Magnetic field strength for the horizontal beam kick. [T*m]</div>
 </div>
 </div></blockquote>
-<p><strong>tm_ykick</strong>: float</p>
+<p><strong>tm_ykick</strong>: float (optional, default is <strong>0.0</strong>)</p>
 <blockquote>
 <div><div class="line-block">
 <div class="line">Magnetic field strength for the vertical beam kick. [T*m]</div>
 </div>
 </div></blockquote>
-<p><strong>xyrotate</strong>: float</p>
+<p><strong>xyrotate</strong>: float (optional, default is <strong>0.0</strong>)</p>
 <blockquote>
 <div><div class="line-block">
 <div class="line">Transverse rotation angle of the beam. [deg]</div>
@@ -697,51 +700,51 @@ the process order is, transverse rotation -&gt; beam kick. In other words, the b
 <div class="line">Solenoid strength (<span class="math notranslate nohighlight">\(B_z\)</span>). [T]</div>
 </div>
 </div></blockquote>
-<p><strong>dx</strong>: float (default: 0.0)</p>
+<p><strong>dx</strong>: float (optional, default is <strong>0.0</strong>)</p>
 <blockquote>
 <div><div class="line-block">
 <div class="line">Misalignment of horizontal shift. [m]</div>
 </div>
 </div></blockquote>
-<p><strong>dy</strong>: float (default: 0.0)</p>
+<p><strong>dy</strong>: float (optional, default is <strong>0.0</strong>)</p>
 <blockquote>
 <div><div class="line-block">
 <div class="line">Misalignment of vertical shift. [m]</div>
 </div>
 </div></blockquote>
-<p><strong>pitch</strong>: float (default: 0.0)</p>
+<p><strong>pitch</strong>: float (optional, default is <strong>0.0</strong>)</p>
 <blockquote>
 <div><div class="line-block">
 <div class="line">Misaglignment of pitch angle. [rad]</div>
 </div>
 </div></blockquote>
-<p><strong>yaw</strong>: float (default: 0.0)</p>
+<p><strong>yaw</strong>: float (optional, default is <strong>0.0</strong>)</p>
 <blockquote>
 <div><div class="line-block">
 <div class="line">Misaglignment of yaw angle. [rad]</div>
 </div>
 </div></blockquote>
-<p><strong>roll</strong>: float (default: 0.0)</p>
+<p><strong>roll</strong>: float (optional, default is <strong>0.0</strong>)</p>
 <blockquote>
 <div><div class="line-block">
 <div class="line">Misaglignment of roll angle. [rad]</div>
 </div>
 </div></blockquote>
-<p><strong>ncurve</strong>: int (default: 0)</p>
+<p><strong>ncurve</strong>: int (optional, default is <strong>0</strong>)</p>
 <blockquote>
 <div><div class="line-block">
 <div class="line">Number of curves for slanted and overlapped field.</div>
 <div class="line">(0 means hard-edge fringe model)</div>
 </div>
 </div></blockquote>
-<p><strong>scl_fac${n}</strong>: float (default: 0)</p>
+<p><strong>scl_fac${n}</strong>: float (optional, default is <strong>0.0</strong>)</p>
 <blockquote>
 <div><div class="line-block">
 <div class="line">Scaling factor of the <em>n</em>-th curve (<em>n</em> start from 0).</div>
 <div class="line">Unit of scl_fac${n}*curve${n} is [T].</div>
 </div>
 </div></blockquote>
-<p><strong>curve${n}</strong>: vector</p>
+<p><strong>curve${n}</strong>: vector (optional, default is <strong>None</strong>)</p>
 <blockquote>
 <div><div class="line-block">
 <div class="line"><em>n</em>-th Curve information (<em>n</em> start from 0).</div>
@@ -750,7 +753,7 @@ The vector elements should be defined by the scaled strength of the element at t
 Also, the step size is defined by “<strong>L</strong> divided by the size of <strong>curve${n}</strong>”.</div>
 </div>
 </div></blockquote>
-<p><strong>CurveFile</strong>: string</p>
+<p><strong>CurveFile</strong>: string (optional, default is <strong>None</strong>)</p>
 <blockquote>
 <div><div class="line-block">
 <div class="line">External file name for the curves, the file format is the same as <strong>curve${n}</strong>.</div>
@@ -758,7 +761,7 @@ Also, the step size is defined by “<strong>L</strong> divided by the size of <
 <div class="line">If CurveFile is available, it overrides the <strong>curve${n}</strong>.</div>
 </div>
 </div></blockquote>
-<p><strong>use_range</strong>: vector[2]</p>
+<p><strong>use_range</strong>: vector[2] (optional, default is <strong>None</strong>)</p>
 <blockquote>
 <div><div class="line-block">
 <div class="line">Use range of <strong>curve${n}</strong>. Format is [start_id, end_id].</div>
@@ -787,13 +790,13 @@ Also, the step size is defined by “<strong>L</strong> divided by the size of <
 <div class="line">Positive value means horizontal focusing.</div>
 </div>
 </div></blockquote>
-<p><strong>dx</strong>, <strong>dy</strong>, <strong>pitch</strong>, <strong>yaw</strong>, <strong>roll</strong>: float</p>
+<p><strong>dx</strong>, <strong>dy</strong>, <strong>pitch</strong>, <strong>yaw</strong>, <strong>roll</strong>: float (optional)</p>
 <blockquote>
 <div><div class="line-block">
 <div class="line">Misalignment parameters. See <a class="reference internal" href="#_CPPv48solenoid" title="solenoid"><code class="xref cpp cpp-type docutils literal notranslate"><span class="pre">solenoid</span></code></a> case.</div>
 </div>
 </div></blockquote>
-<p><strong>ncurve</strong>, <strong>scl_fac${n}</strong>, <strong>curve${n}</strong>, <strong>CurveFile</strong>, <strong>use_range</strong></p>
+<p><strong>ncurve</strong>, <strong>scl_fac${n}</strong>, <strong>curve${n}</strong>, <strong>CurveFile</strong>, <strong>use_range</strong>: (optional)</p>
 <blockquote>
 <div><div class="line-block">
 <div class="line">Curve inputs for slanted and overlapped field. See <a class="reference internal" href="#_CPPv48solenoid" title="solenoid"><code class="xref cpp cpp-type docutils literal notranslate"><span class="pre">solenoid</span></code></a> case.</div>
@@ -823,20 +826,21 @@ Also, the step size is defined by “<strong>L</strong> divided by the size of <
 <div class="line">Positive value means horizontal focusing.</div>
 </div>
 </div></blockquote>
-<p><strong>dstkick</strong>: bool</p>
+<p><strong>dstkick</strong>: bool (optional, default is <strong>1</strong>)</p>
 <blockquote>
 <div><div class="line-block">
 <div class="line">On/off flag to calculate the centroid shift due to the 3rd order effect.</div>
-<div class="line">Default is <strong>1</strong> (on).</div>
+<div class="line"><strong>0</strong> - off</div>
+<div class="line"><strong>1</strong> - on</div>
 </div>
 </div></blockquote>
-<p><strong>step</strong>: int</p>
+<p><strong>step</strong>: int (optional, default is <strong>1</strong>)</p>
 <blockquote>
 <div><div class="line-block">
-<div class="line">Step number for the sextupole element. Default is <strong>1</strong>.</div>
+<div class="line">Step number for the sextupole element.</div>
 </div>
 </div></blockquote>
-<p><strong>dx</strong>, <strong>dy</strong>, <strong>pitch</strong>, <strong>yaw</strong>, <strong>roll</strong>: float</p>
+<p><strong>dx</strong>, <strong>dy</strong>, <strong>pitch</strong>, <strong>yaw</strong>, <strong>roll</strong>: float (optional)</p>
 <blockquote>
 <div><div class="line-block">
 <div class="line">Misalignment parameters. See <a class="reference internal" href="#_CPPv48solenoid" title="solenoid"><code class="xref cpp cpp-type docutils literal notranslate"><span class="pre">solenoid</span></code></a> case.</div>
@@ -871,13 +875,13 @@ Also, the step size is defined by “<strong>L</strong> divided by the size of <
 <div class="line">Electrostatic quadrupole pole tip radius. [m]</div>
 </div>
 </div></blockquote>
-<p><strong>dx</strong>, <strong>dy</strong>, <strong>pitch</strong>, <strong>yaw</strong>, <strong>roll</strong>: float</p>
+<p><strong>dx</strong>, <strong>dy</strong>, <strong>pitch</strong>, <strong>yaw</strong>, <strong>roll</strong>: float (optional)</p>
 <blockquote>
 <div><div class="line-block">
 <div class="line">Misalignment parameters. See <a class="reference internal" href="#_CPPv48solenoid" title="solenoid"><code class="xref cpp cpp-type docutils literal notranslate"><span class="pre">solenoid</span></code></a> case.</div>
 </div>
 </div></blockquote>
-<p><strong>ncurve</strong>, <strong>scl_fac${n}</strong>, <strong>curve${n}</strong>, <strong>CurveFile</strong>, <strong>use_range</strong></p>
+<p><strong>ncurve</strong>, <strong>scl_fac${n}</strong>, <strong>curve${n}</strong>, <strong>CurveFile</strong>, <strong>use_range</strong>: (optional)</p>
 <blockquote>
 <div><div class="line-block">
 <div class="line">Curve inputs for slanted and overlapped field. See <a class="reference internal" href="#_CPPv48solenoid" title="solenoid"><code class="xref cpp cpp-type docutils literal notranslate"><span class="pre">solenoid</span></code></a> case.</div>
@@ -918,14 +922,14 @@ Also, the step size is defined by “<strong>L</strong> divided by the size of <
 <div class="line">Back pole face angle. [deg]</div>
 </div>
 </div></blockquote>
-<p><strong>bg</strong>: float (optional: Used in the case of <a class="reference internal" href="#genpara"><span class="std std-ref">“HdipoleFitMode”</span></a> is <strong>0</strong>.)</p>
+<p><strong>bg</strong>: float (optional, used in the case of <a class="reference internal" href="#genpara"><span class="std std-ref">“HdipoleFitMode”</span></a> is <strong>0</strong>.)</p>
 <blockquote>
 <div><div class="line-block">
 <div class="line">Lorentz <span class="math notranslate nohighlight">\(\beta \gamma\)</span> for the reference beam. [1]</div>
 <div class="line">This parameter is correspond to the bend field strength.</div>
 </div>
 </div></blockquote>
-<p><strong>dx</strong>, <strong>dy</strong>, <strong>pitch</strong>, <strong>yaw</strong>, <strong>roll</strong>: float</p>
+<p><strong>dx</strong>, <strong>dy</strong>, <strong>pitch</strong>, <strong>yaw</strong>, <strong>roll</strong>: float (optional)</p>
 <blockquote>
 <div><div class="line-block">
 <div class="line">Misalignment parameters. See <a class="reference internal" href="#_CPPv48solenoid" title="solenoid"><code class="xref cpp cpp-type docutils literal notranslate"><span class="pre">solenoid</span></code></a> case.</div>
@@ -953,26 +957,26 @@ Also, the step size is defined by “<strong>L</strong> divided by the size of <
 <div class="line">Bend angle. [deg]</div>
 </div>
 </div></blockquote>
-<p><strong>beta</strong>: float (optional: Used in the case of <a class="reference internal" href="#genpara"><span class="std std-ref">“HdipoleFitMode”</span></a> is <strong>0</strong>.)</p>
+<p><strong>beta</strong>: float (optional, used in the case of <a class="reference internal" href="#genpara"><span class="std std-ref">“HdipoleFitMode”</span></a> is <strong>0</strong>.)</p>
 <blockquote>
 <div><div class="line-block">
 <div class="line">Lorentz <span class="math notranslate nohighlight">\(\beta\)</span> for the reference beam. [1]</div>
 <div class="line">This parameter is correspond to the bend field strength.</div>
 </div>
 </div></blockquote>
-<p><strong>fringe_x</strong>: float</p>
+<p><strong>fringe_x</strong>: float (optional, default is <strong>0.0</strong>)</p>
 <blockquote>
 <div><div class="line-block">
 <div class="line">Horizontal fringe term. [rad/mm]</div>
 </div>
 </div></blockquote>
-<p><strong>fringe_y</strong>: float</p>
+<p><strong>fringe_y</strong>: float (optional, default is <strong>0.0</strong>)</p>
 <blockquote>
 <div><div class="line-block">
 <div class="line">Vertical fringe term. [rad/mm]</div>
 </div>
 </div></blockquote>
-<p><strong>asymfac</strong>: float</p>
+<p><strong>asymfac</strong>: float (optional, default is <strong>0.0</strong>)</p>
 <blockquote>
 <div><div class="line-block">
 <div class="line">Characteristic parameter of the kinetic energy change
@@ -995,7 +999,7 @@ due to the middle point potential deviation from ground. [1]</div>
 <div class="line"><strong>1</strong> - vertical bend</div>
 </div>
 </div></blockquote>
-<p><strong>dx</strong>, <strong>dy</strong>, <strong>pitch</strong>, <strong>yaw</strong>, <strong>roll</strong>: float</p>
+<p><strong>dx</strong>, <strong>dy</strong>, <strong>pitch</strong>, <strong>yaw</strong>, <strong>roll</strong>: float (optional)</p>
 <blockquote>
 <div><div class="line-block">
 <div class="line">Misalignment parameters. See <a class="reference internal" href="#_CPPv48solenoid" title="solenoid"><code class="xref cpp cpp-type docutils literal notranslate"><span class="pre">solenoid</span></code></a> case.</div>
@@ -1036,7 +1040,7 @@ due to the middle point potential deviation from ground. [1]</div>
 <div class="line">Input phase of the cavity. [deg]</div>
 </div>
 </div></blockquote>
-<p><strong>syncflag</strong>: int</p>
+<p><strong>syncflag</strong>: int (optional, default is <strong>1</strong>)</p>
 <blockquote>
 <div><div class="line-block">
 <div class="line">Flag for synchronous phase input (for above parameter <strong>phi</strong>).</div>
@@ -1053,19 +1057,19 @@ due to the middle point potential deviation from ground. [1]</div>
 <div class="line">Scaling factor of the field. [1]</div>
 </div>
 </div></blockquote>
-<p><strong>datafile</strong>: string (optional: Used in the case of <code class="docutils literal notranslate"><span class="pre">cavtype</span></code> = “Generic”)</p>
+<p><strong>datafile</strong>: string (optional, used in the case of <code class="docutils literal notranslate"><span class="pre">cavtype</span></code> = “Generic”)</p>
 <blockquote>
 <div><div class="line-block">
 <div class="line">File path of the rf cavity data.</div>
 </div>
 </div></blockquote>
-<p><strong>Rm</strong>: float (optional: Used in the case of <code class="docutils literal notranslate"><span class="pre">cavtype</span></code> = “Generic”)</p>
+<p><strong>Rm</strong>: float (optional, used in the case of <code class="docutils literal notranslate"><span class="pre">cavtype</span></code> = “Generic”)</p>
 <blockquote>
 <div><div class="line-block">
 <div class="line">Characteristic radial length of the multipole expansion. [mm]</div>
 </div>
 </div></blockquote>
-<p><strong>dx</strong>, <strong>dy</strong>, <strong>pitch</strong>, <strong>yaw</strong>, <strong>roll</strong>: float</p>
+<p><strong>dx</strong>, <strong>dy</strong>, <strong>pitch</strong>, <strong>yaw</strong>, <strong>roll</strong>: float  (optional)</p>
 <blockquote>
 <div><div class="line-block">
 <div class="line">Misalignment parameters. See <a class="reference internal" href="#_CPPv48solenoid" title="solenoid"><code class="xref cpp cpp-type docutils literal notranslate"><span class="pre">solenoid</span></code></a> case.</div>
@@ -1075,13 +1079,13 @@ due to the middle point potential deviation from ground. [1]</div>
 </dl>
 </dd></dl>
 
-</div>
-</div>
-<div class="section" id="rf-cavity-data-format">
+</section>
+</section>
+<section id="rf-cavity-data-format">
 <span id="cavformat"></span><h2>Rf cavity data format<a class="headerlink" href="#rf-cavity-data-format" title="Permalink to this headline">¶</a></h2>
 <p>FLAME using Thin-Lens-Model for rf cavity calculation.
 Rf cavity data is composed of “Longitudinal axis data”, “Multipole lattice data”, “Multipole field data”, and “TTF fitting data”.</p>
-<div class="section" id="hard-coded-frib-cavity-models">
+<section id="hard-coded-frib-cavity-models">
 <h3>Hard-coded FRIB cavity models<a class="headerlink" href="#hard-coded-frib-cavity-models" title="Permalink to this headline">¶</a></h3>
 <p>For typical rf cavity in FRIB, the “TTF fitting data” is hard-coded in FLAME.
 Following files are required for each rf cavity type.</p>
@@ -1122,8 +1126,8 @@ Following files are required for each rf cavity type.</p>
 </tr>
 </tbody>
 </table>
-</div>
-<div class="section" id="generic-rf-cavity-model">
+</section>
+<section id="generic-rf-cavity-model">
 <h3>Generic rf cavity model<a class="headerlink" href="#generic-rf-cavity-model" title="Permalink to this headline">¶</a></h3>
 <p>FLAME supports <em>lattice format</em> input for the generic rf cavity model.</p>
 <p>The basic format of the rf cavity data is similar to the main lattice file,</p>
@@ -1252,7 +1256,7 @@ USE: cell;
 </tr>
 </tbody>
 </table>
-<div class="section" id="lattice-element-for-the-rf-cavity-data">
+<section id="lattice-element-for-the-rf-cavity-data">
 <h4>Lattice element for the rf cavity data<a class="headerlink" href="#lattice-element-for-the-rf-cavity-data" title="Permalink to this headline">¶</a></h4>
 <p>Drift space is the same format as the main lattice but unit of <code class="docutils literal notranslate"><span class="pre">L</span></code> is [mm] - <a class="reference internal" href="#_CPPv45drift" title="drift"><code class="xref cpp cpp-type docutils literal notranslate"><span class="pre">drift</span></code></a></p>
 <dl class="cpp type">
@@ -1399,10 +1403,10 @@ to different particle phase speed <span class="math notranslate nohighlight">\(k
 <p>where, <span class="math notranslate nohighlight">\(\varphi_s\)</span> is the synchronous phase in input, <span class="math notranslate nohighlight">\(\varphi_\text{abs}\)</span>
 is absolute phase in front of the rf cavity, and <span class="math notranslate nohighlight">\(m\)</span> is the harmonic number.</p>
 </div>
-</div>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
+</section>
 
 
            </div>
@@ -1425,7 +1429,10 @@ is absolute phase in front of the rf cavity, and <span class="math notranslate n
   <div role="contentinfo">
     <p>
         
-        &copy; Copyright 2020, Author
+        &copy; Copyright 2018-2020, Facility for Rare Isotope Beams, Michigan State University
+      <span class="lastupdated">
+        Last updated on Aug 03, 2022.
+      </span>
 
     </p>
   </div>

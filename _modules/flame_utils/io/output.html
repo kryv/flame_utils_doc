@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>flame_utils.io.output &mdash; flame_utils  documentation</title>
+  <title>flame_utils.io.output &mdash; flame-utils  documentation</title>
   
 
   
@@ -15,6 +15,8 @@
   <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
 
   
+  
+    <link rel="shortcut icon" href="../../../_static/frib-favicon.ico"/>
   
   
   
@@ -50,7 +52,7 @@
           
 
           
-            <a href="../../../index.html" class="icon icon-home" alt="Documentation Home"> flame_utils
+            <a href="../../../index.html" class="icon icon-home" alt="Documentation Home"> flame-utils
           
 
           
@@ -60,7 +62,7 @@
             
             
               <div class="version">
-                0.3.10
+                0.4.2
               </div>
             
           
@@ -85,13 +87,13 @@
               
             
             
-              <p class="caption"><span class="caption-text">Contents:</span></p>
-<ul>
+              <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../tutorial.html">Tutorial</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../element.html">Lattice Properties</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../beamstate.html">BeamState Class</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../modelflame.html">ModelFlame Class</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../plotlat.html">Plot function</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api.html">Application Programming Interface</a></li>
 </ul>
 
             
@@ -107,7 +109,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../../index.html">flame_utils</a>
+          <a href="../../../index.html">flame-utils</a>
         
       </nav>
 
@@ -161,11 +163,6 @@
 
 <span class="sd">&quot;&quot;&quot;Output from FLAME.</span>
 <span class="sd">&quot;&quot;&quot;</span>
-
-<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">absolute_import</span>
-<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">division</span>
-<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">print_function</span>
-<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">unicode_literals</span>
 
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
@@ -221,7 +218,7 @@
 <span class="sd">        Total energy of reference charge state, [eV/u],</span>
 <span class="sd">        i.e. :math:`W = E_s + E_k`.</span>
 <span class="sd">    ref_IonZ : float</span>
-<span class="sd">        Reference charge state, measured by charge to mass ratio, e.g.</span>
+<span class="sd">        Reference charge to mass ratio, e.g.</span>
 <span class="sd">        :math:`^{33^{+}}_{238}U: Q[33]/A[238]`.</span>
 <span class="sd">    ref_phis : float</span>
 <span class="sd">        Absolute synchrotron phase of reference charge state, [rad].</span>
@@ -244,7 +241,7 @@
 <span class="sd">    IonW : Array</span>
 <span class="sd">        Total energy of all charge states, [eV/u], i.e. :math:`W = E_s + E_k`.</span>
 <span class="sd">    IonZ : Array</span>
-<span class="sd">        All charge states, measured by charge to mass ratio</span>
+<span class="sd">        All charge to mass ratios</span>
 <span class="sd">    phis : Array</span>
 <span class="sd">        Absolute synchrotron phase of all charge states, [rad]</span>
 <span class="sd">    SampleIonK : Array</span>
@@ -309,9 +306,9 @@
 <span class="sd">    moment0_rms, rmsvector : Array</span>
 <span class="sd">        RMS beam envelope, part of statistical results from ``moment1``.</span>
 <span class="sd">    moment1, beammatrix_all : Array</span>
-<span class="sd">        Correlation tensor of all charge states, for each charge state.</span>
+<span class="sd">        Covariance matrices of all charge states, for each charge state.</span>
 <span class="sd">    moment1_env, beammatrix : Array</span>
-<span class="sd">        Correlation tensor of all charge states, average over all charge states.</span>
+<span class="sd">        Covariance matrices of all charge states, average over all charge states.</span>
 <span class="sd">    xemittance, xeps : float</span>
 <span class="sd">        Weight average of geometrical x emittance, [mm-mrad].</span>
 <span class="sd">    yemittance, yeps : float</span>
@@ -421,7 +418,10 @@
   <div role="contentinfo">
     <p>
         
-        &copy; Copyright 2020, Author
+        &copy; Copyright 2018-2020, Facility for Rare Isotope Beams, Michigan State University
+      <span class="lastupdated">
+        Last updated on Aug 03, 2022.
+      </span>
 
     </p>
   </div>

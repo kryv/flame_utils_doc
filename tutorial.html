@@ -4,10 +4,11 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
-  
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Tutorial &mdash; flame_utils  documentation</title>
+  <title>Tutorial &mdash; flame-utils  documentation</title>
   
 
   
@@ -15,6 +16,8 @@
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
 
   
+  
+    <link rel="shortcut icon" href="_static/frib-favicon.ico"/>
   
   
   
@@ -38,7 +41,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Lattice Properties" href="element.html" />
-    <link rel="prev" title="flame_utils documentation" href="index.html" /> 
+    <link rel="prev" title="Welcome to flame-utils documentation" href="index.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -52,7 +55,7 @@
           
 
           
-            <a href="index.html" class="icon icon-home" alt="Documentation Home"> flame_utils
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> flame-utils
           
 
           
@@ -62,7 +65,7 @@
             
             
               <div class="version">
-                0.3.10
+                0.4.2
               </div>
             
           
@@ -87,8 +90,7 @@
               
             
             
-              <p class="caption"><span class="caption-text">Contents:</span></p>
-<ul class="current">
+              <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Tutorial</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#basic-usage">1. Basic usage</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#initial-beam-parameter-control">2. Initial beam parameter control</a></li>
@@ -101,6 +103,7 @@
 <li class="toctree-l1"><a class="reference internal" href="beamstate.html">BeamState Class</a></li>
 <li class="toctree-l1"><a class="reference internal" href="modelflame.html">ModelFlame Class</a></li>
 <li class="toctree-l1"><a class="reference internal" href="plotlat.html">Plot function</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">Application Programming Interface</a></li>
 </ul>
 
             
@@ -116,7 +119,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">flame_utils</a>
+          <a href="index.html">flame-utils</a>
         
       </nav>
 
@@ -166,9 +169,9 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="tutorial">
+  <section id="tutorial">
 <h1>Tutorial<a class="headerlink" href="#tutorial" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="basic-usage">
+<section id="basic-usage">
 <h2>1. Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h2>
 <p>In Python interface (include IPython-notebook),
 user can import flame_utils <cite>ModelFlame</cite> class.</p>
@@ -215,8 +218,8 @@ user can import flame_utils <cite>ModelFlame</cite> class.</p>
 <span class="n">hplot</span><span class="p">(</span><span class="s1">&#39;xrms&#39;</span><span class="p">,</span> <span class="s1">&#39;yrms&#39;</span><span class="p">,</span> <span class="n">machine</span><span class="o">=</span><span class="n">fm</span><span class="p">,</span> <span class="n">result</span><span class="o">=</span><span class="n">r</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="initial-beam-parameter-control">
+</section>
+<section id="initial-beam-parameter-control">
 <h2>2. Initial beam parameter control<a class="headerlink" href="#initial-beam-parameter-control" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference internal" href="modelflame.html#flame_utils.core.model.ModelFlame.bmstate" title="flame_utils.core.model.ModelFlame.bmstate"><code class="xref py py-class docutils literal notranslate"><span class="pre">bmstate</span></code></a> returns initial <a class="reference internal" href="beamstate.html#flame_utils.core.state.BeamState" title="flame_utils.core.state.BeamState"><code class="xref py py-class docutils literal notranslate"><span class="pre">BeamState</span></code></a> of the input lattice file.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fm</span><span class="o">.</span><span class="n">bmstate</span><span class="o">.</span><span class="n">xrms</span> <span class="c1"># initial xrms size</span>
@@ -227,8 +230,8 @@ user can import flame_utils <cite>ModelFlame</cite> class.</p>
 <span class="c1"># set xrms size to 0.7 mm with the same emittance</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="lattice-element-parameter-control">
+</section>
+<section id="lattice-element-parameter-control">
 <h2>3. Lattice element parameter control<a class="headerlink" href="#lattice-element-parameter-control" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference internal" href="modelflame.html#flame_utils.core.model.ModelFlame.find" title="flame_utils.core.model.ModelFlame.find"><code class="xref py py-class docutils literal notranslate"><span class="pre">find()</span></code></a> index of the lattice element.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fm</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s1">&#39;quadrupole&#39;</span><span class="p">)</span>  <span class="c1"># find by type</span>
@@ -260,8 +263,8 @@ user can import flame_utils <cite>ModelFlame</cite> class.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fm</span><span class="o">.</span><span class="n">generate_latfile</span><span class="p">(</span><span class="n">latfile</span><span class="o">=</span><span class="s1">&#39;New.lat&#39;</span><span class="p">,</span> <span class="n">original</span><span class="o">=</span><span class="s1">&#39;userfile.lat&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="advanced-use-cases">
+</section>
+<section id="advanced-use-cases">
 <h2>4. Advanced use cases<a class="headerlink" href="#advanced-use-cases" title="Permalink to this headline">¶</a></h2>
 <p>In <a class="reference internal" href="modelflame.html#flame_utils.core.model.ModelFlame.run" title="flame_utils.core.model.ModelFlame.run"><code class="xref py py-class docutils literal notranslate"><span class="pre">run()</span></code></a> method, user can define <code class="docutils literal notranslate"><span class="pre">from_element</span></code>,
 <code class="docutils literal notranslate"><span class="pre">to_element</span></code> and <code class="docutils literal notranslate"><span class="pre">bmstate</span></code> as an initial condition.</p>
@@ -274,8 +277,8 @@ user can import flame_utils <cite>ModelFlame</cite> class.</p>
 </pre></div>
 </div>
 <p>These are benefits to minimize the simulation time by selecting the re-calculation section.</p>
-</div>
-<div class="section" id="notes">
+</section>
+<section id="notes">
 <h2>Notes<a class="headerlink" href="#notes" title="Permalink to this headline">¶</a></h2>
 <p>In the case of user put <code class="docutils literal notranslate"><span class="pre">monitor</span> <span class="pre">=</span> <span class="pre">'all'</span></code> in <a class="reference internal" href="modelflame.html#flame_utils.core.model.ModelFlame.run" title="flame_utils.core.model.ModelFlame.run"><code class="xref py py-class docutils literal notranslate"><span class="pre">run()</span></code></a>,
 the index of <code class="docutils literal notranslate"><span class="pre">r</span></code> is consistent with the lattice index in <a class="reference internal" href="modelflame.html#flame_utils.core.model.ModelFlame.get_element" title="flame_utils.core.model.ModelFlame.get_element"><code class="xref py py-class docutils literal notranslate"><span class="pre">get_element()</span></code></a>.</p>
@@ -284,8 +287,8 @@ the index of <code class="docutils literal notranslate"><span class="pre">r</spa
 </pre></div>
 </div>
 <p>Here <code class="docutils literal notranslate"><span class="pre">r1[78][1]</span></code> is the same as <code class="docutils literal notranslate"><span class="pre">s2</span></code>.</p>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
@@ -298,7 +301,7 @@ the index of <code class="docutils literal notranslate"><span class="pre">r</spa
         <a href="element.html" class="btn btn-neutral float-right" title="Lattice Properties" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="index.html" class="btn btn-neutral float-left" title="flame_utils documentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="index.html" class="btn btn-neutral float-left" title="Welcome to flame-utils documentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -308,7 +311,10 @@ the index of <code class="docutils literal notranslate"><span class="pre">r</spa
   <div role="contentinfo">
     <p>
         
-        &copy; Copyright 2020, Author
+        &copy; Copyright 2018-2020, Facility for Rare Isotope Beams, Michigan State University
+      <span class="lastupdated">
+        Last updated on Aug 03, 2022.
+      </span>
 
     </p>
   </div>

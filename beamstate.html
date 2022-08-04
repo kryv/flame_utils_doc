@@ -4,10 +4,11 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
-  
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>BeamState Class &mdash; flame_utils  documentation</title>
+  <title>BeamState Class &mdash; flame-utils  documentation</title>
   
 
   
@@ -15,6 +16,8 @@
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
 
   
+  
+    <link rel="shortcut icon" href="_static/frib-favicon.ico"/>
   
   
   
@@ -52,7 +55,7 @@
           
 
           
-            <a href="index.html" class="icon icon-home" alt="Documentation Home"> flame_utils
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> flame-utils
           
 
           
@@ -62,7 +65,7 @@
             
             
               <div class="version">
-                0.3.10
+                0.4.2
               </div>
             
           
@@ -87,8 +90,7 @@
               
             
             
-              <p class="caption"><span class="caption-text">Contents:</span></p>
-<ul class="current">
+              <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="tutorial.html">Tutorial</a></li>
 <li class="toctree-l1"><a class="reference internal" href="element.html">Lattice Properties</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">BeamState Class</a><ul>
@@ -97,6 +99,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="modelflame.html">ModelFlame Class</a></li>
 <li class="toctree-l1"><a class="reference internal" href="plotlat.html">Plot function</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">Application Programming Interface</a></li>
 </ul>
 
             
@@ -112,7 +115,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">flame_utils</a>
+          <a href="index.html">flame-utils</a>
         
       </nav>
 
@@ -162,9 +165,9 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="beamstate-class">
+  <section id="beamstate-class">
 <h1>BeamState Class<a class="headerlink" href="#beamstate-class" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="module-flame_utils.core.state">
+<section id="module-flame_utils.core.state">
 <span id="beam-parameter-control-and-output"></span><h2>Beam parameter control and output<a class="headerlink" href="#module-flame_utils.core.state" title="Permalink to this headline">¶</a></h2>
 <p>Abstracted FLAME beam state class.</p>
 <dl class="py class">
@@ -205,13 +208,16 @@
 <td><p>float: total energy of reference charge state, [eV/u], i.e.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#flame_utils.core.state.BeamState.ref_IonZ" title="flame_utils.core.state.BeamState.ref_IonZ"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ref_IonZ</span></code></a></p></td>
-<td><p>float: reference charge state, measured by charge to mass ratio, e.g.</p></td>
+<td><p>float: reference charge to mass ratio, e.g.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#flame_utils.core.state.BeamState.ref_phis" title="flame_utils.core.state.BeamState.ref_phis"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ref_phis</span></code></a></p></td>
 <td><p>float: absolute synchrotron phase of reference charge state, [rad]</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#flame_utils.core.state.BeamState.ref_SampleIonK" title="flame_utils.core.state.BeamState.ref_SampleIonK"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ref_SampleIonK</span></code></a></p></td>
 <td><p>float: wave-vector in cavities with different beta values of reference charge state, [rad]</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#flame_utils.core.state.BeamState.ref_Brho" title="flame_utils.core.state.BeamState.ref_Brho"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ref_Brho</span></code></a></p></td>
+<td><p>float: magnetic rigidity of reference charge state, [Tm]</p></td>
 </tr>
 </tbody>
 </table>
@@ -246,7 +252,7 @@
 <td><p>Array: total energy of all charge states, [eV/u], i.e.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#flame_utils.core.state.BeamState.IonZ" title="flame_utils.core.state.BeamState.IonZ"><code class="xref py py-obj docutils literal notranslate"><span class="pre">IonZ</span></code></a></p></td>
-<td><p>Array: all charge states, measured by charge to mass ratio</p></td>
+<td><p>Array: all charge to mass ratios</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#flame_utils.core.state.BeamState.phis" title="flame_utils.core.state.BeamState.phis"><code class="xref py py-obj docutils literal notranslate"><span class="pre">phis</span></code></a></p></td>
 <td><p>Array: absolute synchrotron phase of all charge states, [rad]</p></td>
@@ -254,134 +260,140 @@
 <tr class="row-even"><td><p><a class="reference internal" href="#flame_utils.core.state.BeamState.SampleIonK" title="flame_utils.core.state.BeamState.SampleIonK"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SampleIonK</span></code></a></p></td>
 <td><p>Array: wave-vector in cavities with different beta values of all charge states, [rad]</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#flame_utils.core.state.BeamState.moment0" title="flame_utils.core.state.BeamState.moment0"><code class="xref py py-obj docutils literal notranslate"><span class="pre">moment0</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#flame_utils.core.state.BeamState.Brho" title="flame_utils.core.state.BeamState.Brho"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Brho</span></code></a></p></td>
+<td><p>float: magnetic rigidity of reference charge state, [Tm]</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#flame_utils.core.state.BeamState.moment0" title="flame_utils.core.state.BeamState.moment0"><code class="xref py py-obj docutils literal notranslate"><span class="pre">moment0</span></code></a></p></td>
 <td><p>Array: centroid for all charge states, array of <code class="docutils literal notranslate"><span class="pre">[x,</span> <span class="pre">x',</span> <span class="pre">y,</span> <span class="pre">y',</span> <span class="pre">phi,</span> <span class="pre">dEk,</span> <span class="pre">1]</span></code></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#flame_utils.core.state.BeamState.moment0_rms" title="flame_utils.core.state.BeamState.moment0_rms"><code class="xref py py-obj docutils literal notranslate"><span class="pre">moment0_rms</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#flame_utils.core.state.BeamState.moment0_rms" title="flame_utils.core.state.BeamState.moment0_rms"><code class="xref py py-obj docutils literal notranslate"><span class="pre">moment0_rms</span></code></a></p></td>
 <td><p>Array: rms beam envelope, part of statistical results from <code class="docutils literal notranslate"><span class="pre">moment1</span></code>.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#flame_utils.core.state.BeamState.moment0_env" title="flame_utils.core.state.BeamState.moment0_env"><code class="xref py py-obj docutils literal notranslate"><span class="pre">moment0_env</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#flame_utils.core.state.BeamState.moment0_env" title="flame_utils.core.state.BeamState.moment0_env"><code class="xref py py-obj docutils literal notranslate"><span class="pre">moment0_env</span></code></a></p></td>
 <td><p>Array: weight average of centroid for all charge states, array of <code class="docutils literal notranslate"><span class="pre">[x,</span> <span class="pre">x',</span> <span class="pre">y,</span> <span class="pre">y',</span> <span class="pre">phi,</span> <span class="pre">dEk,</span> <span class="pre">1]</span></code>, with the units of <code class="docutils literal notranslate"><span class="pre">[mm,</span> <span class="pre">rad,</span> <span class="pre">mm,</span> <span class="pre">rad,</span> <span class="pre">rad,</span> <span class="pre">MeV/u,</span> <span class="pre">1]</span></code>.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#flame_utils.core.state.BeamState.moment1" title="flame_utils.core.state.BeamState.moment1"><code class="xref py py-obj docutils literal notranslate"><span class="pre">moment1</span></code></a></p></td>
-<td><p>Array: correlation tensor of all charge states, for each charge state, the correlation matrix could be written as:</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#flame_utils.core.state.BeamState.moment1" title="flame_utils.core.state.BeamState.moment1"><code class="xref py py-obj docutils literal notranslate"><span class="pre">moment1</span></code></a></p></td>
+<td><p>Array: covariance matrices of all charge states, for each charge state, the covariance matrix could be written as:</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#flame_utils.core.state.BeamState.moment1_env" title="flame_utils.core.state.BeamState.moment1_env"><code class="xref py py-obj docutils literal notranslate"><span class="pre">moment1_env</span></code></a></p></td>
-<td><p>Array: averaged correlation tensor of all charge states</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#flame_utils.core.state.BeamState.moment1_env" title="flame_utils.core.state.BeamState.moment1_env"><code class="xref py py-obj docutils literal notranslate"><span class="pre">moment1_env</span></code></a></p></td>
+<td><p>Array: averaged covariance matrices of all charge states</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#flame_utils.core.state.BeamState.xcen" title="flame_utils.core.state.BeamState.xcen"><code class="xref py py-obj docutils literal notranslate"><span class="pre">xcen</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#flame_utils.core.state.BeamState.xcen" title="flame_utils.core.state.BeamState.xcen"><code class="xref py py-obj docutils literal notranslate"><span class="pre">xcen</span></code></a></p></td>
 <td><p>float: weight average of all charge states for <span class="math notranslate nohighlight">\(x\)</span>, [mm]</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#flame_utils.core.state.BeamState.xrms" title="flame_utils.core.state.BeamState.xrms"><code class="xref py py-obj docutils literal notranslate"><span class="pre">xrms</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#flame_utils.core.state.BeamState.xrms" title="flame_utils.core.state.BeamState.xrms"><code class="xref py py-obj docutils literal notranslate"><span class="pre">xrms</span></code></a></p></td>
 <td><p>float: general rms beam envelope for <span class="math notranslate nohighlight">\(x\)</span>, [mm]</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#flame_utils.core.state.BeamState.xpcen" title="flame_utils.core.state.BeamState.xpcen"><code class="xref py py-obj docutils literal notranslate"><span class="pre">xpcen</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#flame_utils.core.state.BeamState.xpcen" title="flame_utils.core.state.BeamState.xpcen"><code class="xref py py-obj docutils literal notranslate"><span class="pre">xpcen</span></code></a></p></td>
 <td><p>float: weight average of all charge states for <span class="math notranslate nohighlight">\(x'\)</span>, [rad]</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#flame_utils.core.state.BeamState.xprms" title="flame_utils.core.state.BeamState.xprms"><code class="xref py py-obj docutils literal notranslate"><span class="pre">xprms</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#flame_utils.core.state.BeamState.xprms" title="flame_utils.core.state.BeamState.xprms"><code class="xref py py-obj docutils literal notranslate"><span class="pre">xprms</span></code></a></p></td>
 <td><p>float: general rms beam envelope for <span class="math notranslate nohighlight">\(x'\)</span>, [rad]</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#flame_utils.core.state.BeamState.ycen" title="flame_utils.core.state.BeamState.ycen"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ycen</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#flame_utils.core.state.BeamState.ycen" title="flame_utils.core.state.BeamState.ycen"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ycen</span></code></a></p></td>
 <td><p>float: weight average of all charge states for <span class="math notranslate nohighlight">\(y\)</span>, [mm]</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#flame_utils.core.state.BeamState.yrms" title="flame_utils.core.state.BeamState.yrms"><code class="xref py py-obj docutils literal notranslate"><span class="pre">yrms</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#flame_utils.core.state.BeamState.yrms" title="flame_utils.core.state.BeamState.yrms"><code class="xref py py-obj docutils literal notranslate"><span class="pre">yrms</span></code></a></p></td>
 <td><p>float: general rms beam envelope for <span class="math notranslate nohighlight">\(y\)</span>, [mm]</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#flame_utils.core.state.BeamState.ypcen" title="flame_utils.core.state.BeamState.ypcen"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ypcen</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#flame_utils.core.state.BeamState.ypcen" title="flame_utils.core.state.BeamState.ypcen"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ypcen</span></code></a></p></td>
 <td><p>float: weight average of all charge states for <span class="math notranslate nohighlight">\(y'\)</span>, [rad]</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#flame_utils.core.state.BeamState.yprms" title="flame_utils.core.state.BeamState.yprms"><code class="xref py py-obj docutils literal notranslate"><span class="pre">yprms</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#flame_utils.core.state.BeamState.yprms" title="flame_utils.core.state.BeamState.yprms"><code class="xref py py-obj docutils literal notranslate"><span class="pre">yprms</span></code></a></p></td>
 <td><p>float: general rms beam envelope for <span class="math notranslate nohighlight">\(y'\)</span>, [rad]</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#flame_utils.core.state.BeamState.zcen" title="flame_utils.core.state.BeamState.zcen"><code class="xref py py-obj docutils literal notranslate"><span class="pre">zcen</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#flame_utils.core.state.BeamState.zcen" title="flame_utils.core.state.BeamState.zcen"><code class="xref py py-obj docutils literal notranslate"><span class="pre">zcen</span></code></a></p></td>
 <td><p>float: weight average of all charge states for <span class="math notranslate nohighlight">\(\phi\)</span>, [rad]</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#flame_utils.core.state.BeamState.zrms" title="flame_utils.core.state.BeamState.zrms"><code class="xref py py-obj docutils literal notranslate"><span class="pre">zrms</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#flame_utils.core.state.BeamState.zrms" title="flame_utils.core.state.BeamState.zrms"><code class="xref py py-obj docutils literal notranslate"><span class="pre">zrms</span></code></a></p></td>
 <td><p>float: general rms beam envelope for <span class="math notranslate nohighlight">\(\phi\)</span>, [rad]</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#flame_utils.core.state.BeamState.zpcen" title="flame_utils.core.state.BeamState.zpcen"><code class="xref py py-obj docutils literal notranslate"><span class="pre">zpcen</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#flame_utils.core.state.BeamState.zpcen" title="flame_utils.core.state.BeamState.zpcen"><code class="xref py py-obj docutils literal notranslate"><span class="pre">zpcen</span></code></a></p></td>
 <td><p>float: weight average of all charge states for <span class="math notranslate nohighlight">\(\delta E_k\)</span>, [MeV/u]</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#flame_utils.core.state.BeamState.zprms" title="flame_utils.core.state.BeamState.zprms"><code class="xref py py-obj docutils literal notranslate"><span class="pre">zprms</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#flame_utils.core.state.BeamState.zprms" title="flame_utils.core.state.BeamState.zprms"><code class="xref py py-obj docutils literal notranslate"><span class="pre">zprms</span></code></a></p></td>
 <td><p>float: general rms beam envelope for <span class="math notranslate nohighlight">\(\delta E_k\)</span>, [MeV/u]</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#flame_utils.core.state.BeamState.xcen_all" title="flame_utils.core.state.BeamState.xcen_all"><code class="xref py py-obj docutils literal notranslate"><span class="pre">xcen_all</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#flame_utils.core.state.BeamState.xcen_all" title="flame_utils.core.state.BeamState.xcen_all"><code class="xref py py-obj docutils literal notranslate"><span class="pre">xcen_all</span></code></a></p></td>
 <td><p>Array: x centroid for all charge states, [mm]</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#flame_utils.core.state.BeamState.xrms_all" title="flame_utils.core.state.BeamState.xrms_all"><code class="xref py py-obj docutils literal notranslate"><span class="pre">xrms_all</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#flame_utils.core.state.BeamState.xrms_all" title="flame_utils.core.state.BeamState.xrms_all"><code class="xref py py-obj docutils literal notranslate"><span class="pre">xrms_all</span></code></a></p></td>
 <td><p>Array: general rms beam envelope for <span class="math notranslate nohighlight">\(x\)</span> of all charge states, [mm]</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#flame_utils.core.state.BeamState.xpcen_all" title="flame_utils.core.state.BeamState.xpcen_all"><code class="xref py py-obj docutils literal notranslate"><span class="pre">xpcen_all</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#flame_utils.core.state.BeamState.xpcen_all" title="flame_utils.core.state.BeamState.xpcen_all"><code class="xref py py-obj docutils literal notranslate"><span class="pre">xpcen_all</span></code></a></p></td>
 <td><p>Array: x centroid divergence for all charge states, [rad]</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#flame_utils.core.state.BeamState.xprms_all" title="flame_utils.core.state.BeamState.xprms_all"><code class="xref py py-obj docutils literal notranslate"><span class="pre">xprms_all</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#flame_utils.core.state.BeamState.xprms_all" title="flame_utils.core.state.BeamState.xprms_all"><code class="xref py py-obj docutils literal notranslate"><span class="pre">xprms_all</span></code></a></p></td>
 <td><p>Array: general rms beam envelope for <span class="math notranslate nohighlight">\(x'\)</span> of all charge states, [rad]</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#flame_utils.core.state.BeamState.ycen_all" title="flame_utils.core.state.BeamState.ycen_all"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ycen_all</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#flame_utils.core.state.BeamState.ycen_all" title="flame_utils.core.state.BeamState.ycen_all"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ycen_all</span></code></a></p></td>
 <td><p>Array: y centroid for all charge states, [mm]</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#flame_utils.core.state.BeamState.yrms_all" title="flame_utils.core.state.BeamState.yrms_all"><code class="xref py py-obj docutils literal notranslate"><span class="pre">yrms_all</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#flame_utils.core.state.BeamState.yrms_all" title="flame_utils.core.state.BeamState.yrms_all"><code class="xref py py-obj docutils literal notranslate"><span class="pre">yrms_all</span></code></a></p></td>
 <td><p>Array: general rms beam envelope for <span class="math notranslate nohighlight">\(y\)</span> of all charge states, [mm]</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#flame_utils.core.state.BeamState.ypcen_all" title="flame_utils.core.state.BeamState.ypcen_all"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ypcen_all</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#flame_utils.core.state.BeamState.ypcen_all" title="flame_utils.core.state.BeamState.ypcen_all"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ypcen_all</span></code></a></p></td>
 <td><p>Array: y centroid divergence for all charge states, [rad]</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#flame_utils.core.state.BeamState.yprms_all" title="flame_utils.core.state.BeamState.yprms_all"><code class="xref py py-obj docutils literal notranslate"><span class="pre">yprms_all</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#flame_utils.core.state.BeamState.yprms_all" title="flame_utils.core.state.BeamState.yprms_all"><code class="xref py py-obj docutils literal notranslate"><span class="pre">yprms_all</span></code></a></p></td>
 <td><p>Array: general rms beam envelope for <span class="math notranslate nohighlight">\(y'\)</span> of all charge states, [rad]</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#flame_utils.core.state.BeamState.zcen_all" title="flame_utils.core.state.BeamState.zcen_all"><code class="xref py py-obj docutils literal notranslate"><span class="pre">zcen_all</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#flame_utils.core.state.BeamState.zcen_all" title="flame_utils.core.state.BeamState.zcen_all"><code class="xref py py-obj docutils literal notranslate"><span class="pre">zcen_all</span></code></a></p></td>
 <td><p>Array: longitudinal beam length, measured in RF frequency for all charge states, [rad]</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#flame_utils.core.state.BeamState.zrms_all" title="flame_utils.core.state.BeamState.zrms_all"><code class="xref py py-obj docutils literal notranslate"><span class="pre">zrms_all</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#flame_utils.core.state.BeamState.zrms_all" title="flame_utils.core.state.BeamState.zrms_all"><code class="xref py py-obj docutils literal notranslate"><span class="pre">zrms_all</span></code></a></p></td>
 <td><p>Array: general rms beam envelope for <span class="math notranslate nohighlight">\(\phi\)</span> of all charge states, [rad]</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#flame_utils.core.state.BeamState.zpcen_all" title="flame_utils.core.state.BeamState.zpcen_all"><code class="xref py py-obj docutils literal notranslate"><span class="pre">zpcen_all</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#flame_utils.core.state.BeamState.zpcen_all" title="flame_utils.core.state.BeamState.zpcen_all"><code class="xref py py-obj docutils literal notranslate"><span class="pre">zpcen_all</span></code></a></p></td>
 <td><p>Array: kinetic energy deviation w.r.t.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#flame_utils.core.state.BeamState.zprms_all" title="flame_utils.core.state.BeamState.zprms_all"><code class="xref py py-obj docutils literal notranslate"><span class="pre">zprms_all</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#flame_utils.core.state.BeamState.zprms_all" title="flame_utils.core.state.BeamState.zprms_all"><code class="xref py py-obj docutils literal notranslate"><span class="pre">zprms_all</span></code></a></p></td>
 <td><p>Array: general rms beam envelope for <span class="math notranslate nohighlight">\(\delta E_k\)</span> of all charge states, [MeV/u]</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#flame_utils.core.state.BeamState.xemittance" title="flame_utils.core.state.BeamState.xemittance"><code class="xref py py-obj docutils literal notranslate"><span class="pre">xemittance</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#flame_utils.core.state.BeamState.xemittance" title="flame_utils.core.state.BeamState.xemittance"><code class="xref py py-obj docutils literal notranslate"><span class="pre">xemittance</span></code></a></p></td>
 <td><p>float: weight average of geometrical x emittance, [mm-mrad]</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#flame_utils.core.state.BeamState.xnemittance" title="flame_utils.core.state.BeamState.xnemittance"><code class="xref py py-obj docutils literal notranslate"><span class="pre">xnemittance</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#flame_utils.core.state.BeamState.xnemittance" title="flame_utils.core.state.BeamState.xnemittance"><code class="xref py py-obj docutils literal notranslate"><span class="pre">xnemittance</span></code></a></p></td>
 <td><p>float: weight average of normalized x emittance, [mm-mrad]</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#flame_utils.core.state.BeamState.yemittance" title="flame_utils.core.state.BeamState.yemittance"><code class="xref py py-obj docutils literal notranslate"><span class="pre">yemittance</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#flame_utils.core.state.BeamState.yemittance" title="flame_utils.core.state.BeamState.yemittance"><code class="xref py py-obj docutils literal notranslate"><span class="pre">yemittance</span></code></a></p></td>
 <td><p>float: weight average of geometrical y emittance, [mm-mrad]</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#flame_utils.core.state.BeamState.ynemittance" title="flame_utils.core.state.BeamState.ynemittance"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ynemittance</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#flame_utils.core.state.BeamState.ynemittance" title="flame_utils.core.state.BeamState.ynemittance"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ynemittance</span></code></a></p></td>
 <td><p>float: weight average of normalized y emittance, [mm-mrad]</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#flame_utils.core.state.BeamState.zemittance" title="flame_utils.core.state.BeamState.zemittance"><code class="xref py py-obj docutils literal notranslate"><span class="pre">zemittance</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#flame_utils.core.state.BeamState.zemittance" title="flame_utils.core.state.BeamState.zemittance"><code class="xref py py-obj docutils literal notranslate"><span class="pre">zemittance</span></code></a></p></td>
 <td><p>float: weight average of geometrical z emittance, [rad-MeV/u]</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#flame_utils.core.state.BeamState.znemittance" title="flame_utils.core.state.BeamState.znemittance"><code class="xref py py-obj docutils literal notranslate"><span class="pre">znemittance</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#flame_utils.core.state.BeamState.znemittance" title="flame_utils.core.state.BeamState.znemittance"><code class="xref py py-obj docutils literal notranslate"><span class="pre">znemittance</span></code></a></p></td>
 <td><p>float: weight average of normalized z emittance, [rad-MeV/u]</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#flame_utils.core.state.BeamState.xemittance_all" title="flame_utils.core.state.BeamState.xemittance_all"><code class="xref py py-obj docutils literal notranslate"><span class="pre">xemittance_all</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#flame_utils.core.state.BeamState.xemittance_all" title="flame_utils.core.state.BeamState.xemittance_all"><code class="xref py py-obj docutils literal notranslate"><span class="pre">xemittance_all</span></code></a></p></td>
 <td><p>Array: geometrical x emittance of all charge states, [mm-mrad]</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#flame_utils.core.state.BeamState.xnemittance_all" title="flame_utils.core.state.BeamState.xnemittance_all"><code class="xref py py-obj docutils literal notranslate"><span class="pre">xnemittance_all</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#flame_utils.core.state.BeamState.xnemittance_all" title="flame_utils.core.state.BeamState.xnemittance_all"><code class="xref py py-obj docutils literal notranslate"><span class="pre">xnemittance_all</span></code></a></p></td>
 <td><p>Array: normalized x emittance of all charge states, [mm-mrad]</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#flame_utils.core.state.BeamState.yemittance_all" title="flame_utils.core.state.BeamState.yemittance_all"><code class="xref py py-obj docutils literal notranslate"><span class="pre">yemittance_all</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#flame_utils.core.state.BeamState.yemittance_all" title="flame_utils.core.state.BeamState.yemittance_all"><code class="xref py py-obj docutils literal notranslate"><span class="pre">yemittance_all</span></code></a></p></td>
 <td><p>Array: geometrical y emittance of all charge states, [mm-mrad]</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#flame_utils.core.state.BeamState.ynemittance_all" title="flame_utils.core.state.BeamState.ynemittance_all"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ynemittance_all</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#flame_utils.core.state.BeamState.ynemittance_all" title="flame_utils.core.state.BeamState.ynemittance_all"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ynemittance_all</span></code></a></p></td>
 <td><p>Array: normalized y emittance of all charge states, [mm-mrad]</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#flame_utils.core.state.BeamState.zemittance_all" title="flame_utils.core.state.BeamState.zemittance_all"><code class="xref py py-obj docutils literal notranslate"><span class="pre">zemittance_all</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#flame_utils.core.state.BeamState.zemittance_all" title="flame_utils.core.state.BeamState.zemittance_all"><code class="xref py py-obj docutils literal notranslate"><span class="pre">zemittance_all</span></code></a></p></td>
 <td><p>Array: geometrical z emittance of all charge states, [rad-MeV/u]</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#flame_utils.core.state.BeamState.znemittance_all" title="flame_utils.core.state.BeamState.znemittance_all"><code class="xref py py-obj docutils literal notranslate"><span class="pre">znemittance_all</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#flame_utils.core.state.BeamState.znemittance_all" title="flame_utils.core.state.BeamState.znemittance_all"><code class="xref py py-obj docutils literal notranslate"><span class="pre">znemittance_all</span></code></a></p></td>
 <td><p>Array: normalized z emittance of all charge states, [rad-MeV/u]</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#flame_utils.core.state.BeamState.xtwiss_beta" title="flame_utils.core.state.BeamState.xtwiss_beta"><code class="xref py py-obj docutils literal notranslate"><span class="pre">xtwiss_beta</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#flame_utils.core.state.BeamState.xtwiss_beta" title="flame_utils.core.state.BeamState.xtwiss_beta"><code class="xref py py-obj docutils literal notranslate"><span class="pre">xtwiss_beta</span></code></a></p></td>
 <td><p>float: weight average of twiss beta x, [m/rad]</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#flame_utils.core.state.BeamState.xtwiss_alpha" title="flame_utils.core.state.BeamState.xtwiss_alpha"><code class="xref py py-obj docutils literal notranslate"><span class="pre">xtwiss_alpha</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#flame_utils.core.state.BeamState.xtwiss_alpha" title="flame_utils.core.state.BeamState.xtwiss_alpha"><code class="xref py py-obj docutils literal notranslate"><span class="pre">xtwiss_alpha</span></code></a></p></td>
 <td><p>float: weight average of twiss alpha x, [1]</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#flame_utils.core.state.BeamState.xtwiss_gamma" title="flame_utils.core.state.BeamState.xtwiss_gamma"><code class="xref py py-obj docutils literal notranslate"><span class="pre">xtwiss_gamma</span></code></a></p></td>
+<td><p>float: weight average of twiss gamma x, [rad/m]</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#flame_utils.core.state.BeamState.ytwiss_beta" title="flame_utils.core.state.BeamState.ytwiss_beta"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ytwiss_beta</span></code></a></p></td>
 <td><p>float: weight average of twiss beta y, [m/rad]</p></td>
@@ -389,11 +401,17 @@
 <tr class="row-odd"><td><p><a class="reference internal" href="#flame_utils.core.state.BeamState.ytwiss_alpha" title="flame_utils.core.state.BeamState.ytwiss_alpha"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ytwiss_alpha</span></code></a></p></td>
 <td><p>float: weight average of twiss alpha y, [1]</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#flame_utils.core.state.BeamState.ztwiss_beta" title="flame_utils.core.state.BeamState.ztwiss_beta"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ztwiss_beta</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#flame_utils.core.state.BeamState.ytwiss_gamma" title="flame_utils.core.state.BeamState.ytwiss_gamma"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ytwiss_gamma</span></code></a></p></td>
+<td><p>float: weight average of twiss gamma y, [rad/m]</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#flame_utils.core.state.BeamState.ztwiss_beta" title="flame_utils.core.state.BeamState.ztwiss_beta"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ztwiss_beta</span></code></a></p></td>
 <td><p>float: weight average of twiss beta z, [rad/MeV/u]</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#flame_utils.core.state.BeamState.ztwiss_alpha" title="flame_utils.core.state.BeamState.ztwiss_alpha"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ztwiss_alpha</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#flame_utils.core.state.BeamState.ztwiss_alpha" title="flame_utils.core.state.BeamState.ztwiss_alpha"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ztwiss_alpha</span></code></a></p></td>
 <td><p>float: weight average of twiss alpha z, [1]</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#flame_utils.core.state.BeamState.ztwiss_gamma" title="flame_utils.core.state.BeamState.ztwiss_gamma"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ztwiss_gamma</span></code></a></p></td>
+<td><p>float: weight average of twiss gamma z, [MeV/u/rad]</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#flame_utils.core.state.BeamState.xtwiss_beta_all" title="flame_utils.core.state.BeamState.xtwiss_beta_all"><code class="xref py py-obj docutils literal notranslate"><span class="pre">xtwiss_beta_all</span></code></a></p></td>
 <td><p>Array: twiss beta x of all charge states, [m/rad]</p></td>
@@ -401,11 +419,17 @@
 <tr class="row-odd"><td><p><a class="reference internal" href="#flame_utils.core.state.BeamState.xtwiss_alpha_all" title="flame_utils.core.state.BeamState.xtwiss_alpha_all"><code class="xref py py-obj docutils literal notranslate"><span class="pre">xtwiss_alpha_all</span></code></a></p></td>
 <td><p>Array: twiss alpha x of all charge states, [1]</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#flame_utils.core.state.BeamState.ytwiss_beta_all" title="flame_utils.core.state.BeamState.ytwiss_beta_all"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ytwiss_beta_all</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#flame_utils.core.state.BeamState.xtwiss_gamma_all" title="flame_utils.core.state.BeamState.xtwiss_gamma_all"><code class="xref py py-obj docutils literal notranslate"><span class="pre">xtwiss_gamma_all</span></code></a></p></td>
+<td><p>Array: twiss gamma x of all charge states, [rad/m]</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#flame_utils.core.state.BeamState.ytwiss_beta_all" title="flame_utils.core.state.BeamState.ytwiss_beta_all"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ytwiss_beta_all</span></code></a></p></td>
 <td><p>Array: twiss beta y of all charge states, [m/rad]</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#flame_utils.core.state.BeamState.ytwiss_alpha_all" title="flame_utils.core.state.BeamState.ytwiss_alpha_all"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ytwiss_alpha_all</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#flame_utils.core.state.BeamState.ytwiss_alpha_all" title="flame_utils.core.state.BeamState.ytwiss_alpha_all"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ytwiss_alpha_all</span></code></a></p></td>
 <td><p>Array: twiss alpha y of all charge states, [1]</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#flame_utils.core.state.BeamState.ytwiss_gamma_all" title="flame_utils.core.state.BeamState.ytwiss_gamma_all"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ytwiss_gamma_all</span></code></a></p></td>
+<td><p>Array: twiss gamma y of all charge states, [rad/m]</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#flame_utils.core.state.BeamState.ztwiss_beta_all" title="flame_utils.core.state.BeamState.ztwiss_beta_all"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ztwiss_beta_all</span></code></a></p></td>
 <td><p>Array: twiss beta z of all charge states, [rad/MeV/u]</p></td>
@@ -413,34 +437,37 @@
 <tr class="row-odd"><td><p><a class="reference internal" href="#flame_utils.core.state.BeamState.ztwiss_alpha_all" title="flame_utils.core.state.BeamState.ztwiss_alpha_all"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ztwiss_alpha_all</span></code></a></p></td>
 <td><p>Array: twiss alpha z of all charge states, [1]</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#flame_utils.core.state.BeamState.couple_xy" title="flame_utils.core.state.BeamState.couple_xy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">couple_xy</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#flame_utils.core.state.BeamState.ztwiss_gamma_all" title="flame_utils.core.state.BeamState.ztwiss_gamma_all"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ztwiss_gamma_all</span></code></a></p></td>
+<td><p>Array: twiss gamma z of all charge states, [MeV/u/rad]</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#flame_utils.core.state.BeamState.couple_xy" title="flame_utils.core.state.BeamState.couple_xy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">couple_xy</span></code></a></p></td>
 <td><p>float: weight average of normalized x-y coupling term, [1]</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#flame_utils.core.state.BeamState.couple_xpy" title="flame_utils.core.state.BeamState.couple_xpy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">couple_xpy</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#flame_utils.core.state.BeamState.couple_xpy" title="flame_utils.core.state.BeamState.couple_xpy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">couple_xpy</span></code></a></p></td>
 <td><p>float: weight average of normalized xp-y coupling term, [1]</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#flame_utils.core.state.BeamState.couple_xyp" title="flame_utils.core.state.BeamState.couple_xyp"><code class="xref py py-obj docutils literal notranslate"><span class="pre">couple_xyp</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#flame_utils.core.state.BeamState.couple_xyp" title="flame_utils.core.state.BeamState.couple_xyp"><code class="xref py py-obj docutils literal notranslate"><span class="pre">couple_xyp</span></code></a></p></td>
 <td><p>float: weight average of normalized x-yp coupling term, [1]</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#flame_utils.core.state.BeamState.couple_xpyp" title="flame_utils.core.state.BeamState.couple_xpyp"><code class="xref py py-obj docutils literal notranslate"><span class="pre">couple_xpyp</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#flame_utils.core.state.BeamState.couple_xpyp" title="flame_utils.core.state.BeamState.couple_xpyp"><code class="xref py py-obj docutils literal notranslate"><span class="pre">couple_xpyp</span></code></a></p></td>
 <td><p>float: weight average of normalized xp-yp coupling term, [1]</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#flame_utils.core.state.BeamState.couple_xy_all" title="flame_utils.core.state.BeamState.couple_xy_all"><code class="xref py py-obj docutils literal notranslate"><span class="pre">couple_xy_all</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#flame_utils.core.state.BeamState.couple_xy_all" title="flame_utils.core.state.BeamState.couple_xy_all"><code class="xref py py-obj docutils literal notranslate"><span class="pre">couple_xy_all</span></code></a></p></td>
 <td><p>Array: normalized x-y coupling term of all charge states, [1]</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#flame_utils.core.state.BeamState.couple_xpy_all" title="flame_utils.core.state.BeamState.couple_xpy_all"><code class="xref py py-obj docutils literal notranslate"><span class="pre">couple_xpy_all</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#flame_utils.core.state.BeamState.couple_xpy_all" title="flame_utils.core.state.BeamState.couple_xpy_all"><code class="xref py py-obj docutils literal notranslate"><span class="pre">couple_xpy_all</span></code></a></p></td>
 <td><p>Array: normalized xp-y coupling term of all charge states, [1]</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#flame_utils.core.state.BeamState.couple_xyp_all" title="flame_utils.core.state.BeamState.couple_xyp_all"><code class="xref py py-obj docutils literal notranslate"><span class="pre">couple_xyp_all</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#flame_utils.core.state.BeamState.couple_xyp_all" title="flame_utils.core.state.BeamState.couple_xyp_all"><code class="xref py py-obj docutils literal notranslate"><span class="pre">couple_xyp_all</span></code></a></p></td>
 <td><p>Array: normalized x-yp coupling term of all charge states, [1]</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#flame_utils.core.state.BeamState.couple_xpyp_all" title="flame_utils.core.state.BeamState.couple_xpyp_all"><code class="xref py py-obj docutils literal notranslate"><span class="pre">couple_xpyp_all</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#flame_utils.core.state.BeamState.couple_xpyp_all" title="flame_utils.core.state.BeamState.couple_xpyp_all"><code class="xref py py-obj docutils literal notranslate"><span class="pre">couple_xpyp_all</span></code></a></p></td>
 <td><p>Array: normalized xp-yp coupling term of all charge states, [1]</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#flame_utils.core.state.BeamState.last_caviphi0" title="flame_utils.core.state.BeamState.last_caviphi0"><code class="xref py py-obj docutils literal notranslate"><span class="pre">last_caviphi0</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#flame_utils.core.state.BeamState.last_caviphi0" title="flame_utils.core.state.BeamState.last_caviphi0"><code class="xref py py-obj docutils literal notranslate"><span class="pre">last_caviphi0</span></code></a></p></td>
 <td><p>float: Last RF cavity’s driven phase, [deg]</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#flame_utils.core.state.BeamState.transfer_matrix" title="flame_utils.core.state.BeamState.transfer_matrix"><code class="xref py py-obj docutils literal notranslate"><span class="pre">transfer_matrix</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#flame_utils.core.state.BeamState.transfer_matrix" title="flame_utils.core.state.BeamState.transfer_matrix"><code class="xref py py-obj docutils literal notranslate"><span class="pre">transfer_matrix</span></code></a></p></td>
 <td><p>Array: Transfer matrix of the last element</p></td>
 </tr>
 </tbody>
@@ -452,14 +479,20 @@
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#flame_utils.core.state.BeamState.clone" title="flame_utils.core.state.BeamState.clone"><code class="xref py py-obj docutils literal notranslate"><span class="pre">clone</span></code></a>(self)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#flame_utils.core.state.BeamState.clone" title="flame_utils.core.state.BeamState.clone"><code class="xref py py-obj docutils literal notranslate"><span class="pre">clone</span></code></a>()</p></td>
 <td><p>Return a copy of Beamstate object.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#flame_utils.core.state.BeamState.set_twiss" title="flame_utils.core.state.BeamState.set_twiss"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_twiss</span></code></a>(self, coor[, alpha, beta, …])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#flame_utils.core.state.BeamState.set_twiss" title="flame_utils.core.state.BeamState.set_twiss"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_twiss</span></code></a>(coor[, alpha, beta, rmssize, …])</p></td>
 <td><p>Set moment1 matrix by using Twiss parameter.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#flame_utils.core.state.BeamState.set_couple" title="flame_utils.core.state.BeamState.set_couple"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_couple</span></code></a>(self, coor1, coor2[, value, cs])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#flame_utils.core.state.BeamState.get_twiss" title="flame_utils.core.state.BeamState.get_twiss"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_twiss</span></code></a>(coor[, cs])</p></td>
+<td><p>Get twiss parameters of moment1 matrix</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#flame_utils.core.state.BeamState.set_couple" title="flame_utils.core.state.BeamState.set_couple"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_couple</span></code></a>(coor1, coor2[, value, cs])</p></td>
 <td><p>Set normalized coupling term of moment1 matrix</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#flame_utils.core.state.BeamState.get_couple" title="flame_utils.core.state.BeamState.get_couple"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_couple</span></code></a>(coor1, coor2[, cs])</p></td>
+<td><p>Get normalized coupling term of moment1 matrix</p></td>
 </tr>
 </tbody>
 </table>
@@ -586,7 +619,7 @@ i.e. <span class="math notranslate nohighlight">\(W = E_s + E_k\)</span></p>
 <dl class="py method">
 <dt id="flame_utils.core.state.BeamState.ref_IonZ">
 <em class="property">property </em><code class="sig-name descname">ref_IonZ</code><a class="headerlink" href="#flame_utils.core.state.BeamState.ref_IonZ" title="Permalink to this definition">¶</a></dt>
-<dd><p>float: reference charge state, measured by charge to mass ratio,
+<dd><p>float: reference charge to mass ratio,
 e.g. <span class="math notranslate nohighlight">\(^{33^{+}}_{238}U: Q(33)/A(238)\)</span>, [Q/A]</p>
 </dd></dl>
 
@@ -602,6 +635,18 @@ e.g. <span class="math notranslate nohighlight">\(^{33^{+}}_{238}U: Q(33)/A(238)
 <em class="property">property </em><code class="sig-name descname">ref_SampleIonK</code><a class="headerlink" href="#flame_utils.core.state.BeamState.ref_SampleIonK" title="Permalink to this definition">¶</a></dt>
 <dd><p>float: wave-vector in cavities with different beta values of
 reference charge state, [rad]</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="flame_utils.core.state.BeamState.ref_SampleFreq">
+<em class="property">property </em><code class="sig-name descname">ref_SampleFreq</code><a class="headerlink" href="#flame_utils.core.state.BeamState.ref_SampleFreq" title="Permalink to this definition">¶</a></dt>
+<dd><p>float: sampling frequency of reference charge state, [Hz]</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="flame_utils.core.state.BeamState.ref_Brho">
+<em class="property">property </em><code class="sig-name descname">ref_Brho</code><a class="headerlink" href="#flame_utils.core.state.BeamState.ref_Brho" title="Permalink to this definition">¶</a></dt>
+<dd><p>float: magnetic rigidity of reference charge state, [Tm]</p>
 </dd></dl>
 
 <dl class="py method">
@@ -653,7 +698,7 @@ i.e. <span class="math notranslate nohighlight">\(W = E_s + E_k\)</span></p>
 <dl class="py method">
 <dt id="flame_utils.core.state.BeamState.IonZ">
 <em class="property">property </em><code class="sig-name descname">IonZ</code><a class="headerlink" href="#flame_utils.core.state.BeamState.IonZ" title="Permalink to this definition">¶</a></dt>
-<dd><p>Array: all charge states, measured by charge to mass ratio</p>
+<dd><p>Array: all charge to mass ratios</p>
 <p class="rubric">Notes</p>
 <p>This is what <code class="docutils literal notranslate"><span class="pre">IonChargeStates</span></code> means in the FLAME lattice file.</p>
 </dd></dl>
@@ -669,6 +714,18 @@ i.e. <span class="math notranslate nohighlight">\(W = E_s + E_k\)</span></p>
 <em class="property">property </em><code class="sig-name descname">SampleIonK</code><a class="headerlink" href="#flame_utils.core.state.BeamState.SampleIonK" title="Permalink to this definition">¶</a></dt>
 <dd><p>Array: wave-vector in cavities with different beta values of all
 charge states, [rad]</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="flame_utils.core.state.BeamState.SampleFreq">
+<em class="property">property </em><code class="sig-name descname">SampleFreq</code><a class="headerlink" href="#flame_utils.core.state.BeamState.SampleFreq" title="Permalink to this definition">¶</a></dt>
+<dd><p>Array: sampling frequency of all charge states, [Hz]</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="flame_utils.core.state.BeamState.Brho">
+<em class="property">property </em><code class="sig-name descname">Brho</code><a class="headerlink" href="#flame_utils.core.state.BeamState.Brho" title="Permalink to this definition">¶</a></dt>
+<dd><p>float: magnetic rigidity of reference charge state, [Tm]</p>
 </dd></dl>
 
 <dl class="py method">
@@ -699,7 +756,7 @@ corrector (i.e. <code class="docutils literal notranslate"><span class="pre">orb
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
 <dl class="simple">
-<dt><a class="reference internal" href="#flame_utils.core.state.BeamState.moment1" title="flame_utils.core.state.BeamState.moment1"><code class="xref py py-obj docutils literal notranslate"><span class="pre">moment1</span></code></a></dt><dd><p>correlation tensor of all charge states</p>
+<dt><a class="reference internal" href="#flame_utils.core.state.BeamState.moment1" title="flame_utils.core.state.BeamState.moment1"><code class="xref py py-obj docutils literal notranslate"><span class="pre">moment1</span></code></a></dt><dd><p>covariance matrices of all charge states</p>
 </dd>
 </dl>
 </div>
@@ -718,8 +775,8 @@ elements of <code class="docutils literal notranslate"><span class="pre">moment1
 <dl class="py method">
 <dt id="flame_utils.core.state.BeamState.moment1">
 <em class="property">property </em><code class="sig-name descname">moment1</code><a class="headerlink" href="#flame_utils.core.state.BeamState.moment1" title="Permalink to this definition">¶</a></dt>
-<dd><p>Array: correlation tensor of all charge states, for each charge
-state, the correlation matrix could be written as:</p>
+<dd><p>Array: covariance matrices of all charge states, for each charge
+state, the covariance matrix could be written as:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{array}{ccccccc}
     \color{red}{\left&lt;x \cdot x\right&gt;} &amp; \left&lt;x \cdot x'\right&gt; &amp; \left&lt;x \cdot y\right&gt; &amp; \left&lt;x \cdot y'\right&gt; &amp; \left&lt;x \cdot \phi\right&gt; &amp; \left&lt;x \cdot \delta E_k\right&gt; &amp; 0 \\
@@ -735,7 +792,7 @@ state, the correlation matrix could be written as:</p>
 <dl class="py method">
 <dt id="flame_utils.core.state.BeamState.moment1_env">
 <em class="property">property </em><code class="sig-name descname">moment1_env</code><a class="headerlink" href="#flame_utils.core.state.BeamState.moment1_env" title="Permalink to this definition">¶</a></dt>
-<dd><p>Array: averaged correlation tensor of all charge states</p>
+<dd><p>Array: averaged covariance matrices of all charge states</p>
 </dd></dl>
 
 <dl class="py method">
@@ -900,7 +957,7 @@ for all charge states, [MeV/u]</p>
 
 <dl class="py method">
 <dt id="flame_utils.core.state.BeamState.clone">
-<code class="sig-name descname">clone</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/flame_utils/core/state.html#BeamState.clone"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#flame_utils.core.state.BeamState.clone" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">clone</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/flame_utils/core/state.html#BeamState.clone"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#flame_utils.core.state.BeamState.clone" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a copy of Beamstate object.</p>
 </dd></dl>
 
@@ -953,16 +1010,34 @@ for all charge states, [MeV/u]</p>
 </dd></dl>
 
 <dl class="py method">
+<dt id="flame_utils.core.state.BeamState.znemittance">
+<em class="property">property </em><code class="sig-name descname">znemittance</code><a class="headerlink" href="#flame_utils.core.state.BeamState.znemittance" title="Permalink to this definition">¶</a></dt>
+<dd><p>float: weight average of normalized z emittance, [rad-MeV/u]</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="flame_utils.core.state.BeamState.xnemittance_all">
+<em class="property">property </em><code class="sig-name descname">xnemittance_all</code><a class="headerlink" href="#flame_utils.core.state.BeamState.xnemittance_all" title="Permalink to this definition">¶</a></dt>
+<dd><p>Array: normalized x emittance of all charge states, [mm-mrad]</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="flame_utils.core.state.BeamState.ynemittance_all">
+<em class="property">property </em><code class="sig-name descname">ynemittance_all</code><a class="headerlink" href="#flame_utils.core.state.BeamState.ynemittance_all" title="Permalink to this definition">¶</a></dt>
+<dd><p>Array: normalized y emittance of all charge states, [mm-mrad]</p>
+</dd></dl>
+
+<dl class="py method">
 <dt id="flame_utils.core.state.BeamState.beammatrix">
 <em class="property">property </em><code class="sig-name descname">beammatrix</code><a class="headerlink" href="#flame_utils.core.state.BeamState.beammatrix" title="Permalink to this definition">¶</a></dt>
-<dd><p>Array: averaged correlation tensor of all charge states</p>
+<dd><p>Array: averaged covariance matrices of all charge states</p>
 </dd></dl>
 
 <dl class="py method">
 <dt id="flame_utils.core.state.BeamState.beammatrix_all">
 <em class="property">property </em><code class="sig-name descname">beammatrix_all</code><a class="headerlink" href="#flame_utils.core.state.BeamState.beammatrix_all" title="Permalink to this definition">¶</a></dt>
-<dd><p>Array: correlation tensor of all charge states, for each charge
-state, the correlation matrix could be written as:</p>
+<dd><p>Array: covariance matrices of all charge states, for each charge
+state, the covariance matrix could be written as:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{array}{ccccccc}
     \color{red}{\left&lt;x \cdot x\right&gt;} &amp; \left&lt;x \cdot x'\right&gt; &amp; \left&lt;x \cdot y\right&gt; &amp; \left&lt;x \cdot y'\right&gt; &amp; \left&lt;x \cdot \phi\right&gt; &amp; \left&lt;x \cdot \delta E_k\right&gt; &amp; 0 \\
@@ -1098,7 +1173,7 @@ charge states, [rad]</p>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
 <dl class="simple">
-<dt><a class="reference internal" href="#flame_utils.core.state.BeamState.moment1" title="flame_utils.core.state.BeamState.moment1"><code class="xref py py-obj docutils literal notranslate"><span class="pre">moment1</span></code></a></dt><dd><p>correlation tensor of all charge states</p>
+<dt><a class="reference internal" href="#flame_utils.core.state.BeamState.moment1" title="flame_utils.core.state.BeamState.moment1"><code class="xref py py-obj docutils literal notranslate"><span class="pre">moment1</span></code></a></dt><dd><p>covariance matrices of all charge states</p>
 </dd>
 </dl>
 </div>
@@ -1198,6 +1273,18 @@ elements of <code class="docutils literal notranslate"><span class="pre">moment1
 </dd></dl>
 
 <dl class="py method">
+<dt id="flame_utils.core.state.BeamState.xtwsg">
+<em class="property">property </em><code class="sig-name descname">xtwsg</code><a class="headerlink" href="#flame_utils.core.state.BeamState.xtwsg" title="Permalink to this definition">¶</a></dt>
+<dd><p>float: weight average of twiss gamma x, [rad/m]</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="flame_utils.core.state.BeamState.xtwsg_all">
+<em class="property">property </em><code class="sig-name descname">xtwsg_all</code><a class="headerlink" href="#flame_utils.core.state.BeamState.xtwsg_all" title="Permalink to this definition">¶</a></dt>
+<dd><p>Array: twiss gamma x of all charge states, [rad/m]</p>
+</dd></dl>
+
+<dl class="py method">
 <dt id="flame_utils.core.state.BeamState.ycen">
 <em class="property">property </em><code class="sig-name descname">ycen</code><a class="headerlink" href="#flame_utils.core.state.BeamState.ycen" title="Permalink to this definition">¶</a></dt>
 <dd><p>float: weight average of all charge states for <span class="math notranslate nohighlight">\(y\)</span>, [mm]</p>
@@ -1282,6 +1369,18 @@ elements of <code class="docutils literal notranslate"><span class="pre">moment1
 </dd></dl>
 
 <dl class="py method">
+<dt id="flame_utils.core.state.BeamState.ytwsg">
+<em class="property">property </em><code class="sig-name descname">ytwsg</code><a class="headerlink" href="#flame_utils.core.state.BeamState.ytwsg" title="Permalink to this definition">¶</a></dt>
+<dd><p>float: weight average of twiss gamma y, [rad/m]</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="flame_utils.core.state.BeamState.ytwsg_all">
+<em class="property">property </em><code class="sig-name descname">ytwsg_all</code><a class="headerlink" href="#flame_utils.core.state.BeamState.ytwsg_all" title="Permalink to this definition">¶</a></dt>
+<dd><p>Array: twiss gamma y of all charge states, [rad/m]</p>
+</dd></dl>
+
+<dl class="py method">
 <dt id="flame_utils.core.state.BeamState.zcen">
 <em class="property">property </em><code class="sig-name descname">zcen</code><a class="headerlink" href="#flame_utils.core.state.BeamState.zcen" title="Permalink to this definition">¶</a></dt>
 <dd><p>float: weight average of all charge states for <span class="math notranslate nohighlight">\(\phi\)</span>,
@@ -1320,9 +1419,9 @@ charge states, [rad]</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="flame_utils.core.state.BeamState.znemittance">
-<em class="property">property </em><code class="sig-name descname">znemittance</code><a class="headerlink" href="#flame_utils.core.state.BeamState.znemittance" title="Permalink to this definition">¶</a></dt>
-<dd><p>float: weight average of normalized z emittance, [rad-MeV/u]</p>
+<dt id="flame_utils.core.state.BeamState.znemittance_all">
+<em class="property">property </em><code class="sig-name descname">znemittance_all</code><a class="headerlink" href="#flame_utils.core.state.BeamState.znemittance_all" title="Permalink to this definition">¶</a></dt>
+<dd><p>Array: normalized z emittance of all charge states, [rad-MeV/u]</p>
 </dd></dl>
 
 <dl class="py method">
@@ -1388,21 +1487,15 @@ for all charge states, [MeV/u]</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="flame_utils.core.state.BeamState.xnemittance_all">
-<em class="property">property </em><code class="sig-name descname">xnemittance_all</code><a class="headerlink" href="#flame_utils.core.state.BeamState.xnemittance_all" title="Permalink to this definition">¶</a></dt>
-<dd><p>Array: normalized x emittance of all charge states, [mm-mrad]</p>
+<dt id="flame_utils.core.state.BeamState.ztwsg">
+<em class="property">property </em><code class="sig-name descname">ztwsg</code><a class="headerlink" href="#flame_utils.core.state.BeamState.ztwsg" title="Permalink to this definition">¶</a></dt>
+<dd><p>float: weight average of twiss gamma z, [MeV/u/rad]</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="flame_utils.core.state.BeamState.ynemittance_all">
-<em class="property">property </em><code class="sig-name descname">ynemittance_all</code><a class="headerlink" href="#flame_utils.core.state.BeamState.ynemittance_all" title="Permalink to this definition">¶</a></dt>
-<dd><p>Array: normalized y emittance of all charge states, [mm-mrad]</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="flame_utils.core.state.BeamState.znemittance_all">
-<em class="property">property </em><code class="sig-name descname">znemittance_all</code><a class="headerlink" href="#flame_utils.core.state.BeamState.znemittance_all" title="Permalink to this definition">¶</a></dt>
-<dd><p>Array: normalized z emittance of all charge states, [rad-MeV/u]</p>
+<dt id="flame_utils.core.state.BeamState.ztwsg_all">
+<em class="property">property </em><code class="sig-name descname">ztwsg_all</code><a class="headerlink" href="#flame_utils.core.state.BeamState.ztwsg_all" title="Permalink to this definition">¶</a></dt>
+<dd><p>Array: twiss gamma z of all charge states, [MeV/u/rad]</p>
 </dd></dl>
 
 <dl class="py method">
@@ -1478,6 +1571,42 @@ for all charge states, [MeV/u]</p>
 </dd></dl>
 
 <dl class="py method">
+<dt id="flame_utils.core.state.BeamState.xtwiss_gamma">
+<em class="property">property </em><code class="sig-name descname">xtwiss_gamma</code><a class="headerlink" href="#flame_utils.core.state.BeamState.xtwiss_gamma" title="Permalink to this definition">¶</a></dt>
+<dd><p>float: weight average of twiss gamma x, [rad/m]</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="flame_utils.core.state.BeamState.ytwiss_gamma">
+<em class="property">property </em><code class="sig-name descname">ytwiss_gamma</code><a class="headerlink" href="#flame_utils.core.state.BeamState.ytwiss_gamma" title="Permalink to this definition">¶</a></dt>
+<dd><p>float: weight average of twiss gamma y, [rad/m]</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="flame_utils.core.state.BeamState.ztwiss_gamma">
+<em class="property">property </em><code class="sig-name descname">ztwiss_gamma</code><a class="headerlink" href="#flame_utils.core.state.BeamState.ztwiss_gamma" title="Permalink to this definition">¶</a></dt>
+<dd><p>float: weight average of twiss gamma z, [MeV/u/rad]</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="flame_utils.core.state.BeamState.xtwiss_gamma_all">
+<em class="property">property </em><code class="sig-name descname">xtwiss_gamma_all</code><a class="headerlink" href="#flame_utils.core.state.BeamState.xtwiss_gamma_all" title="Permalink to this definition">¶</a></dt>
+<dd><p>Array: twiss gamma x of all charge states, [rad/m]</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="flame_utils.core.state.BeamState.ytwiss_gamma_all">
+<em class="property">property </em><code class="sig-name descname">ytwiss_gamma_all</code><a class="headerlink" href="#flame_utils.core.state.BeamState.ytwiss_gamma_all" title="Permalink to this definition">¶</a></dt>
+<dd><p>Array: twiss gamma y of all charge states, [rad/m]</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="flame_utils.core.state.BeamState.ztwiss_gamma_all">
+<em class="property">property </em><code class="sig-name descname">ztwiss_gamma_all</code><a class="headerlink" href="#flame_utils.core.state.BeamState.ztwiss_gamma_all" title="Permalink to this definition">¶</a></dt>
+<dd><p>Array: twiss gamma z of all charge states, [MeV/u/rad]</p>
+</dd></dl>
+
+<dl class="py method">
 <dt id="flame_utils.core.state.BeamState.couple_xy">
 <em class="property">property </em><code class="sig-name descname">couple_xy</code><a class="headerlink" href="#flame_utils.core.state.BeamState.couple_xy" title="Permalink to this definition">¶</a></dt>
 <dd><p>float: weight average of normalized x-y coupling term, [1]</p>
@@ -1526,8 +1655,46 @@ for all charge states, [MeV/u]</p>
 </dd></dl>
 
 <dl class="py method">
+<dt id="flame_utils.core.state.BeamState.set_energy">
+<code class="sig-name descname">set_energy</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">IonEk</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">ref_IonEk</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/flame_utils/core/state.html#BeamState.set_energy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#flame_utils.core.state.BeamState.set_energy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set longitudinal parameters based on reference/actual enargy</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>IonEk</strong><span class="classifier">Array</span></dt><dd><p>Kinetic energy of all charge state, [eV/u]</p>
+</dd>
+<dt><strong>ref_IonEk</strong><span class="classifier">float</span></dt><dd><p>kinetic energy of reference charge state, [eV/u]</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="flame_utils.core.state.BeamState.set_centroid">
+<code class="sig-name descname">set_centroid</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">coor</span></em>, <em class="sig-param"><span class="n">position</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">momentum</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">cs</span><span class="o">=</span><span class="default_value">0</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/flame_utils/core/state.html#BeamState.set_centroid"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#flame_utils.core.state.BeamState.set_centroid" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set moment0 vector based on the centroid information</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>coor</strong><span class="classifier">str</span></dt><dd><p>Coordinate of the twiss parameter,　‘x’, ‘y’, or ‘z’.</p>
+</dd>
+<dt><strong>position</strong><span class="classifier">float</span></dt><dd><p>Centroid position of the phase space, [mm] of ‘x’ and ‘y’, [rad] for ‘z’.</p>
+</dd>
+<dt><strong>momentum</strong><span class="classifier">float</span></dt><dd><p>Centroid momentum of the phase space, [rad] of ‘x’ and ‘y’, ‘[MeV/u] for ‘z’.</p>
+</dd>
+<dt><strong>cs</strong><span class="classifier">int</span></dt><dd><p>Index of the charge state to set parameter.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>‘z momentum’ means the energy deviation from the reference energy.</p>
+</dd></dl>
+
+<dl class="py method">
 <dt id="flame_utils.core.state.BeamState.set_twiss">
-<code class="sig-name descname">set_twiss</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">coor</span></em>, <em class="sig-param"><span class="n">alpha</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">beta</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">rmssize</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">emittance</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">nemittance</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">cs</span><span class="o">=</span><span class="default_value">0</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/flame_utils/core/state.html#BeamState.set_twiss"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#flame_utils.core.state.BeamState.set_twiss" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">set_twiss</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">coor</span></em>, <em class="sig-param"><span class="n">alpha</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">beta</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">rmssize</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">emittance</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">nemittance</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">cs</span><span class="o">=</span><span class="default_value">0</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/flame_utils/core/state.html#BeamState.set_twiss"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#flame_utils.core.state.BeamState.set_twiss" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set moment1 matrix by using Twiss parameter.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1554,20 +1721,44 @@ for all charge states, [MeV/u]</p>
 </dd></dl>
 
 <dl class="py method">
+<dt id="flame_utils.core.state.BeamState.get_twiss">
+<code class="sig-name descname">get_twiss</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">coor</span></em>, <em class="sig-param"><span class="n">cs</span><span class="o">=</span><span class="default_value">0</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/flame_utils/core/state.html#BeamState.get_twiss"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#flame_utils.core.state.BeamState.get_twiss" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get twiss parameters of moment1 matrix</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>coor</strong><span class="classifier">str</span></dt><dd><p>Coordinate of the twiss parameter,　‘x’, ‘y’, or ‘z’.</p>
+</dd>
+<dt><strong>cs</strong><span class="classifier">int</span></dt><dd><p>Index of the charge state (-1 for weight average of all charge states).</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>twiss</strong><span class="classifier">array</span></dt><dd><p>Twiss [alpha, beta, gamma] of the beam.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
 <dt id="flame_utils.core.state.BeamState.get_couple">
-<code class="sig-name descname">get_couple</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">coor1</span></em>, <em class="sig-param"><span class="n">coor2</span></em>, <em class="sig-param"><span class="n">cs</span><span class="o">=</span><span class="default_value">0</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/flame_utils/core/state.html#BeamState.get_couple"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#flame_utils.core.state.BeamState.get_couple" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_couple</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">coor1</span></em>, <em class="sig-param"><span class="n">coor2</span></em>, <em class="sig-param"><span class="n">cs</span><span class="o">=</span><span class="default_value">0</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/flame_utils/core/state.html#BeamState.get_couple"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#flame_utils.core.state.BeamState.get_couple" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get normalized coupling term of moment1 matrix</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>coor1</strong><span class="classifier">str</span></dt><dd><p>First Coordinate of the coupling term, ‘x’, xp, ‘y’, ‘yp’, ‘z’, or ‘zp’.</p>
+<dt><strong>coor1</strong><span class="classifier">str</span></dt><dd><p>First coordinate of the coupling term, ‘x’, xp, ‘y’, ‘yp’, ‘z’, or ‘zp’.</p>
 </dd>
-<dt><strong>coor2</strong><span class="classifier">str</span></dt><dd><p>Second Coordinate of the coupling term, ‘x’, xp, ‘y’, ‘yp’, ‘z’, or ‘zp’.</p>
+<dt><strong>coor2</strong><span class="classifier">str</span></dt><dd><p>Second coordinate of the coupling term, ‘x’, xp, ‘y’, ‘yp’, ‘z’, or ‘zp’.</p>
 </dd>
 <dt><strong>cs</strong><span class="classifier">int</span></dt><dd><p>Index of the charge state (-1 for weight average of all charge states).</p>
 </dd>
-<dt><strong>Returns</strong></dt><dd></dd>
-<dt><strong>——-</strong></dt><dd></dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
 <dt><strong>term</strong><span class="classifier">float</span></dt><dd><p>Normalized coupling term of <code class="docutils literal notranslate"><span class="pre">coor1</span></code> and <code class="docutils literal notranslate"><span class="pre">coor2</span></code> of <code class="docutils literal notranslate"><span class="pre">cs</span></code>-th charge state.</p>
 </dd>
 </dl>
@@ -1577,14 +1768,14 @@ for all charge states, [MeV/u]</p>
 
 <dl class="py method">
 <dt id="flame_utils.core.state.BeamState.set_couple">
-<code class="sig-name descname">set_couple</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">coor1</span></em>, <em class="sig-param"><span class="n">coor2</span></em>, <em class="sig-param"><span class="n">value</span><span class="o">=</span><span class="default_value">0.0</span></em>, <em class="sig-param"><span class="n">cs</span><span class="o">=</span><span class="default_value">0</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/flame_utils/core/state.html#BeamState.set_couple"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#flame_utils.core.state.BeamState.set_couple" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">set_couple</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">coor1</span></em>, <em class="sig-param"><span class="n">coor2</span></em>, <em class="sig-param"><span class="n">value</span><span class="o">=</span><span class="default_value">0.0</span></em>, <em class="sig-param"><span class="n">cs</span><span class="o">=</span><span class="default_value">0</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/flame_utils/core/state.html#BeamState.set_couple"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#flame_utils.core.state.BeamState.set_couple" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set normalized coupling term of moment1 matrix</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>coor1</strong><span class="classifier">str</span></dt><dd><p>First Coordinate of the coupling term, ‘x’, xp, ‘y’, ‘yp’, ‘z’, or ‘zp’.</p>
+<dt><strong>coor1</strong><span class="classifier">str</span></dt><dd><p>First coordinate of the coupling term, ‘x’, xp, ‘y’, ‘yp’, ‘z’, or ‘zp’.</p>
 </dd>
-<dt><strong>coor2</strong><span class="classifier">str</span></dt><dd><p>Second Coordinate of the coupling term, ‘x’, xp, ‘y’, ‘yp’, ‘z’, or ‘zp’.</p>
+<dt><strong>coor2</strong><span class="classifier">str</span></dt><dd><p>Second coordinate of the coupling term, ‘x’, xp, ‘y’, ‘yp’, ‘z’, or ‘zp’.</p>
 </dd>
 <dt><strong>value</strong><span class="classifier">float</span></dt><dd><p>Normalized coupling term, (-1 ~ +1) [1].</p>
 </dd>
@@ -1631,8 +1822,104 @@ recommended way is to create a <cite>BeamState</cite> object with <cite>latfile<
 use <cite>s</cite> as the input of <cite>generate_source</cite>.</p>
 </dd></dl>
 
-</div>
-</div>
+<dl class="py function">
+<dt id="flame_utils.core.state.get_brho">
+<code class="sig-prename descclassname">flame_utils.core.state.</code><code class="sig-name descname">get_brho</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">k</span></em>, <em class="sig-param"><span class="n">z</span></em>, <em class="sig-param"><span class="n">es</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/flame_utils/core/state.html#get_brho"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#flame_utils.core.state.get_brho" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get magnetic rigidity</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>k</strong><span class="classifier">float</span></dt><dd><p>Kinetic energy [eV/u]</p>
+</dd>
+<dt><strong>z</strong><span class="classifier">float</span></dt><dd><p>Charge to mass ratio, Q/A [1].</p>
+</dd>
+<dt><strong>es</strong><span class="classifier">float</span></dt><dd><p>Rest energy [eV/u]</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>brho</strong><span class="classifier">float</span></dt><dd><p>Magnetic rigidity [Tm].</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="flame_utils.core.state.couple_index">
+<code class="sig-prename descclassname">flame_utils.core.state.</code><code class="sig-name descname">couple_index</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">coor1</span></em>, <em class="sig-param"><span class="n">coor2</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/flame_utils/core/state.html#couple_index"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#flame_utils.core.state.couple_index" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get index from coordinate information</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="flame_utils.core.state.get_couple">
+<code class="sig-prename descclassname">flame_utils.core.state.</code><code class="sig-name descname">get_couple</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">matrix</span></em>, <em class="sig-param"><span class="n">coor1</span></em>, <em class="sig-param"><span class="n">coor2</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/flame_utils/core/state.html#get_couple"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#flame_utils.core.state.get_couple" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get normalized coupling term of moment1 matrix</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>matrix</strong><span class="classifier">Array</span></dt><dd><p>Covariance matrix of the beam.</p>
+</dd>
+<dt><strong>coor1</strong><span class="classifier">str</span></dt><dd><p>First Coordinate of the coupling term, ‘x’, xp, ‘y’, ‘yp’, ‘z’, or ‘zp’.</p>
+</dd>
+<dt><strong>coor2</strong><span class="classifier">str</span></dt><dd><p>Second Coordinate of the coupling term, ‘x’, xp, ‘y’, ‘yp’, ‘z’, or ‘zp’.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>term</strong><span class="classifier">float</span></dt><dd><p>Normalized coupling term of <code class="docutils literal notranslate"><span class="pre">coor1</span></code> and <code class="docutils literal notranslate"><span class="pre">coor2</span></code> of <code class="docutils literal notranslate"><span class="pre">cs</span></code>-th charge state.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="flame_utils.core.state.set_couple">
+<code class="sig-prename descclassname">flame_utils.core.state.</code><code class="sig-name descname">set_couple</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">matrix</span></em>, <em class="sig-param"><span class="n">coor1</span></em>, <em class="sig-param"><span class="n">coor2</span></em>, <em class="sig-param"><span class="n">value</span><span class="o">=</span><span class="default_value">0.0</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/flame_utils/core/state.html#set_couple"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#flame_utils.core.state.set_couple" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set normalized coupling term of moment1 matrix</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>matrix</strong><span class="classifier">Array</span></dt><dd><p>Covariance matrix of the beam.</p>
+</dd>
+<dt><strong>coor1</strong><span class="classifier">str</span></dt><dd><p>First Coordinate of the coupling term, ‘x’, xp, ‘y’, ‘yp’, ‘z’, or ‘zp’.</p>
+</dd>
+<dt><strong>coor2</strong><span class="classifier">str</span></dt><dd><p>Second Coordinate of the coupling term, ‘x’, xp, ‘y’, ‘yp’, ‘z’, or ‘zp’.</p>
+</dd>
+<dt><strong>value</strong><span class="classifier">float</span></dt><dd><p>Normalized coupling term, (-1 ~ +1) [1].</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="flame_utils.core.state.twiss_to_matrix">
+<code class="sig-prename descclassname">flame_utils.core.state.</code><code class="sig-name descname">twiss_to_matrix</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">coor</span></em>, <em class="sig-param"><span class="n">alpha</span></em>, <em class="sig-param"><span class="n">beta</span></em>, <em class="sig-param"><span class="n">emittance</span></em>, <em class="sig-param"><span class="n">matrix</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/flame_utils/core/state.html#twiss_to_matrix"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#flame_utils.core.state.twiss_to_matrix" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set covariance matrix by using Twiss parameter.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>coor</strong><span class="classifier">str</span></dt><dd><p>Coordinate of the twiss parameter,　‘x’, ‘y’, or ‘z’.</p>
+</dd>
+<dt><strong>alpha</strong><span class="classifier">float</span></dt><dd><p>Twiss alpha, [1].</p>
+</dd>
+<dt><strong>beta</strong><span class="classifier">float</span></dt><dd><p>Twiss beta, [m/rad] for ‘x’ and ‘y’, [rad/MeV/u] for ‘z’.</p>
+</dd>
+<dt><strong>emittance</strong><span class="classifier">float</span></dt><dd><p>Geometrical (Unnormalized) emittance, [mm-mrad] for ‘x’ and ‘y’, [rad-MeV/u] for ‘z’.</p>
+</dd>
+<dt><strong>matrix</strong><span class="classifier">Array</span></dt><dd><p>Original covariance matrix of the beam</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+</section>
 
 
            </div>
@@ -1655,7 +1942,10 @@ use <cite>s</cite> as the input of <cite>generate_source</cite>.</p>
   <div role="contentinfo">
     <p>
         
-        &copy; Copyright 2020, Author
+        &copy; Copyright 2018-2020, Facility for Rare Isotope Beams, Michigan State University
+      <span class="lastupdated">
+        Last updated on Aug 03, 2022.
+      </span>
 
     </p>
   </div>
